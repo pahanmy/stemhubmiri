@@ -52,7 +52,7 @@
 <body class="bg-gray-100 min-h-screen">
 
     <!-- =============================================================================== -->
-    <!-- (BAHARU) Modal Kata Laluan -->
+    <!-- Modal Kata Laluan -->
     <!-- =============================================================================== -->
     <div id="password-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center fade-in">
@@ -115,22 +115,28 @@
             <div id="data-table-container" class="overflow-x-auto hidden">
                 <table id="data-table" class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
+                        <!-- =============================================================================== -->
+                        <!-- (DIKEMAS KINI) Lajur Nama & Jawatan digabungkan -->
+                        <!-- =============================================================================== -->
                         <tr>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Dihantar Pada</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Nama</th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Jawatan / Peranan</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Nama / Peranan</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Stesen / Sekolah</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Negeri</th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider">Soalan 1 (Peranan)</th>
                             <th scope="col" class="px-6 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider">Soalan 2 (Kompetensi)</th>
                             <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Cadangan</th>
                         </tr>
+                        <!-- =============================================================================== -->
+                        <!-- (TAMAT) Kemas kini -->
+                        <!-- =============================================================================== -->
                     </thead>
                     <tbody id="data-table-body" class="bg-white divide-y divide-gray-200">
                         <!-- Baris (rows) data akan dimasukkan oleh JavaScript di sini -->
                         <!-- Contoh baris data (akan dibuang oleh JS) -->
+                        <!-- (DIKEMAS KINI) Colspan ditukar kepada 7 -->
                         <tr>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="8">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="7">
                                 Tiada data maklum balas ditemui.
                             </td>
                         </tr>
@@ -228,7 +234,8 @@
 
                     if (snapshot.empty) {
                         // Jika tiada data
-                        tableBody.innerHTML = `<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="8">Tiada data maklum balas ditemui.</td></tr>`;
+                        // (DIKEMAS KINI) Colspan ditukar kepada 7
+                        tableBody.innerHTML = `<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="7">Tiada data maklum balas ditemui.</td></tr>`;
                         tableContainer.classList.remove('hidden');
                         return;
                     }
@@ -283,17 +290,24 @@
                 const soalan2 = data.soalan_2 || '-';
                 const cadangan = data.cadangan || '-';
 
-                // Tambah sel (cells) pada baris
+                // ===============================================================================
+                // (DIKEMAS KINI) 'innerHTML' untuk menggabungkan Nama dan Jawatan
+                // ===============================================================================
                 tr.innerHTML = `
                     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">${formattedDate}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${nama}</td>
-                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${jawatan}</td>
+                    <td class="px-6 py-4 align-top text-sm text-gray-900">
+                        <div class="font-medium">${nama}</div>
+                        <div class="text-xs text-gray-500">${jawatan}</div>
+                    </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${stesen}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${negeri}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 text-center font-bold">${soalan1}</td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 text-center font-bold">${soalan2}</td>
                     <td class="px-6 py-4 text-sm text-gray-500" style="min-width: 250px; white-space: normal;">${cadangan}</td>
                 `;
+                // ===============================================================================
+                // (TAMAT) Kemas kini
+                // ===============================================================================
                 
                 // Tambah baris pada badan jadual
                 tableBody.appendChild(tr);
@@ -331,6 +345,20 @@
                 },
                 alternateRowStyles: {
                     fillColor: [249, 250, 251] // Warna kelabu muda
+                },
+                // (BAHARU) Sediakan 'hook' untuk memformat sel gabungan
+                didParseCell: function (data) {
+                    // Semak jika sel berada di lajur 1 (Nama / Peranan) dan bukan di 'head'
+                    if (data.column.index === 1 && data.cell.section === 'body') {
+                        // Ambil elemen div asal
+                        const nameEl = data.cell.raw.querySelector('.font-medium');
+                        const roleEl = data.cell.raw.querySelector('.text-xs');
+                        
+                        if (nameEl && roleEl) {
+                            // Gabungkan teks dengan baris baharu
+                            data.cell.text = [nameEl.textContent, roleEl.textContent];
+                        }
+                    }
                 }
             });
             
@@ -340,12 +368,47 @@
         // 2. Eksport ke Excel
         function exportToExcel() {
             console.log("Mengeksport ke Excel...");
+            
+            // (DIKEMAS KINI) Logik Excel diubah untuk memformat sel gabungan
+            
+            // 1. Dapatkan jadual asal
             const table = document.getElementById('data-table');
+            // 2. Buat salinan (clone) jadual untuk diubah suai
+            const tableClone = table.cloneNode(true);
             
-            // Guna fungsi utiliti SheetJS untuk menukar jadual HTML ke 'workbook'
-            const wb = XLSX.utils.table_to_book(table, { sheet: "Maklum Balas" });
+            // 3. Ubah suai sel badan (tbody) pada salinan
+            const rows = tableClone.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const cell = row.querySelector('td:nth-child(2)'); // Dapatkan sel kedua (Nama / Peranan)
+                if (cell) {
+                    const nameEl = cell.querySelector('.font-medium');
+                    const roleEl = cell.querySelector('.text-xs');
+                    if (nameEl && roleEl) {
+                        // Gabungkan teks dengan baris baharu (Excel faham \n)
+                        cell.innerText = `${nameEl.innerText}\n${roleEl.innerText}`;
+                    }
+                }
+            });
             
-            // Hasilkan fail .xlsx
+            // 4. Guna fungsi utiliti SheetJS pada jadual salinan yang telah diubah suai
+            const wb = XLSX.utils.table_to_book(tableClone, { sheet: "Maklum Balas" });
+            
+            // 5. (Pilihan) Tetapkan format 'wrap text' pada lajur B (Nama / Peranan)
+            try {
+                const ws = wb.Sheets["Maklum Balas"];
+                // Dapatkan julat (range)
+                const range = XLSX.utils.decode_range(ws['!ref']);
+                for (let R = range.s.r + 1; R <= range.e.r; ++R) { // Mula dari baris 1 (selepas header)
+                    const cellRef = XLSX.utils.encode_cell({ r: R, c: 1 }); // Lajur B (indeks 1)
+                    if (ws[cellRef]) {
+                        ws[cellRef].s = { alignment: { wrapText: true } };
+                    }
+                }
+            } catch (e) {
+                console.warn("Gagal menetapkan 'wrap text' untuk Excel:", e);
+            }
+
+            // 6. Hasilkan fail .xlsx
             XLSX.writeFile(wb, 'laporan_maklumbalas_stem.xlsx');
         }
 
@@ -356,3 +419,4 @@
     </script>
 </body>
 </html>
+
