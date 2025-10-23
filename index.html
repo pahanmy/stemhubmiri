@@ -10,9 +10,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        /* Sembunyikan anak panah pada input nombor */
         input[type=number]::-webkit-inner-spin-button,
         input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
         input[type=number] { -moz-appearance: textfield; }
+        /* Animasi fade-in asas */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
@@ -22,16 +24,18 @@
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-purple-50 to-gray-50 min-h-screen">
 
+    <!-- Kontena Utama -->
     <div class="container mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
             
+            <!-- Bahagian Header -->
             <div class="bg-gradient-to-r from-blue-600 to-purple-700 p-8 text-white relative">
-                <!-- (Bahagian Header - ikon SVG lama telah dibuang) -->
                 
                 <!-- =============================================================================== -->
-                <!-- (BAHARU) Imej logo di penjuru kanan atas -->
+                <!-- Imej logo di penjuru kanan atas -->
+                <!-- (DIUBAH) Saiz ditukar daripada h-28 w-28 kepada h-36 w-36 -->
                 <!-- =============================================================================== -->
-                <img src="https://i.imgur.com/z7qDhse.png" alt="Logo Hab STEM" class="absolute top-4 right-6 h-20 w-20 object-contain opacity-90" onerror="this.style.display='none'">
+                <img src="https://i.imgur.com/z7qDhse.png" alt="Logo Hab STEM" class="absolute top-4 right-6 h-36 w-36 object-contain opacity-90" onerror="this.style.display='none'">
                 <!-- =============================================================================== -->
                 <!-- (TAMAT) Imej logo -->
                 <!-- =============================================================================== -->
@@ -40,10 +44,10 @@
                 <h2 class="text-xl font-semibold text-blue-100 relative z-10">Hab STEM PPD Miri</h2>
 
                 <!-- =============================================================================== -->
-                <!-- (BAHARU) Paparan Kaunter Maklum Balas -->
+                <!-- Paparan Kaunter Maklum Balas -->
                 <!-- =============================================================================== -->
                 <div id="counter-display" class="mt-5 flex items-center space-x-3 text-blue-200 relative z-10 opacity-0 transition-opacity duration-500 ease-in-out">
-                    <!-- (DIKEMAS KINI) Ikon ditukar kepada 'clipboard-list' yang lebih sesuai -->
+                    <!-- Ikon 'clipboard-list' -->
                     <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
@@ -61,30 +65,36 @@
                 <!-- (TAMAT) Paparan Kaunter -->
                 <!-- =============================================================================== -->
 
-                <div class="mt-6 border-t border-blue-500 pt-4 text-blue-100 text-sm space-y-2 relative z-10">
-                    <p>Hab STEM PPD Miri berfungsi sebagai pusat rujukan dan pemangkin pelaksanaan inisiatif STEM di daerah Miri.</p>
-                    <p>Borang ini bertujuan untuk mendapatkan maklum balas daripada guru-guru dan rakan strategik mengenai keberkesanan Hab STEM PPD Miri dalam menyokong pelestarian serta pengukuhan pendidikan STEM pada tahun 2025.</p>
-                    <p class="font-semibold mt-4">Maklum balas anda amat penting bagi penambahbaikan program dan strategi pelaksanaan STEM pada masa akan datang. Terima kasih atas masa dan kerjasama anda. 🙏</p>
+                <!-- (DIKEMAS KINI) Ayat penerangan dibuat lebih menarik dan meyakinkan -->
+                <div class="mt-6 border-t border-blue-500 pt-4 text-blue-100 text-sm space-y-3 relative z-10">
+                    <p class="text-base font-medium">Hab STEM PPD Miri komited menjadi <strong class="text-white">peneraju dan pemangkin utama</strong>, mencetuskan inovasi dan menyokong penuh pelaksanaan inisiatif STEM di seluruh daerah Miri.</p>
+                    <p>Suara anda penting! Borang ini adalah saluran khas untuk anda, para guru dan rakan strategik kami, berkongsi pandangan jujur mengenai keberkesanan program kami dalam melestarikan pendidikan STEM sepanjang 2025.</p>
+                    <p class="font-semibold text-blue-50 mt-4 text-base">Wawasan anda hari ini adalah <strong class="text-white">pelan tindakan kami untuk hari esok</strong>. Setiap pandangan anda amat kami hargai dan akan menjadi asas utama dalam merangka strategi STEM yang lebih cemerlang. Terima kasih kerana meluangkan masa membina masa depan bersama kami! 🙏</p>
                 </div>
             </div>
 
             <!-- Badan Borang -->
             <form id="feedback-form" class="p-8 space-y-10">
                 
-                <!-- (SEKSYEN A: PROFIL RESPONDEN - tidak berubah) -->
+                <!-- SEKSYEN A: PROFIL RESPONDEN -->
                 <section>
                     <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-gray-200">
                         <svg class="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                         <h2 class="text-2xl font-semibold text-gray-900">SEKSYEN A: PROFIL RESPONDEN</h2>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- (DIKEMAS KINI) Blok ini kini mempunyai ID 'school-info-block' dan 'hidden' secara lalai -->
+                    <div id="school-info-block" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden">
+                        <!-- Soalan 1: Stesen -->
                         <div>
                             <label for="stesen" class="block text-sm font-medium text-gray-700 mb-2">1. Stesen Bertugas/Sekolah</label>
-                            <input type="text" id="stesen" name="stesen" placeholder="Cth: PPD Miri / SMK ABC" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+                            <!-- (DIKEMAS KINI) 'required' dibuang, akan dikawal oleh JS -->
+                            <input type="text" id="stesen" name="stesen" placeholder="Cth: PPD Miri / SMK ABC" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
                         </div>
+                        <!-- Soalan 2: Negeri -->
                         <div>
                             <label for="negeri" class="block text-sm font-medium text-gray-700 mb-2">2. Negeri Bertugas</label>
-                            <select id="negeri" name="negeri" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white" required>
+                            <!-- (DIKEMAS KINI) 'required' dibuang, akan dikawal oleh JS -->
+                            <select id="negeri" name="negeri" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white">
                                 <option value="" disabled selected>Sila pilih negeri anda</option>
                                 <option value="Johor">Johor</option>
                                 <option value="Kedah">Kedah</option>
@@ -105,10 +115,12 @@
                             </select>
                         </div>
                     </div>
+                    <!-- Soalan 3: Nama -->
                     <div class="mt-8">
                         <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">3. Nama Penuh <span class="text-gray-500 font-normal">(Untuk rujukan Penganjur sahaja)</span></label>
                         <input type="text" id="nama" name="nama" placeholder="Cth: Ali bin Abu" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
                     </div>
+                    <!-- Soalan 4: Jawatan -->
                     <div class="mt-8">
                         <label class="block text-sm font-medium text-gray-700 mb-3">4. Jawatan / Peranan</label>
                         <div class="space-y-3">
@@ -124,9 +136,19 @@
                                 <input id="jawatan-pentadbir" name="jawatan" type="radio" value="Pentadbir Sekolah" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
                                 <label for="jawatan-pentadbir" class="ml-3 block text-sm text-gray-800">Pentadbir Sekolah</label>
                             </div>
+                            <!-- (BAHARU) Pilihan Murid / Pelajar ditambah -->
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
+                                <input id="jawatan-murid" name="jawatan" type="radio" value="Murid / Pelajar" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="jawatan-murid" class="ml-3 block text-sm text-gray-800">Murid / Pelajar</label>
+                            </div>
                             <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
                                 <input id="jawatan-rakan" name="jawatan" type="radio" value="Rakan Strategik / Komuniti" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
                                 <label for="jawatan-rakan" class="ml-3 block text-sm text-gray-800">Rakan Strategik / Komuniti</label>
+                            </div>
+                            <!-- (BAHARU) Pilihan Orang Awam ditambah -->
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
+                                <input id="jawatan-awam" name="jawatan" type="radio" value="Orang Awam" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="jawatan-awam" class="ml-3 block text-sm text-gray-800">Orang Awam</label>
                             </div>
                             <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
                                 <input id="jawatan-lain" name="jawatan" type="radio" value="Lain-lain" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
@@ -137,13 +159,15 @@
                     </div>
                 </section>
 
-                <!-- (SEKSYEN B: MAKLUM BALAS - tidak berubah) -->
+                <!-- SEKSYEN B: MAKLUM BALAS -->
                 <section>
                     <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-gray-200">
                         <svg class="w-8 h-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 12v5h4"></path><path d="M11 17V7h4"></path><path d="m15 17-4-4h8"></path></svg>
                         <h2 class="text-2xl font-semibold text-gray-900">SEKSYEN B: MAKLUM BALAS TERHADAP HAB STEM</h2>
                     </div>
                     <p class="text-sm text-gray-600 mb-8">Arahan: Sila nyatakan tahap persetujuan anda bagi setiap pernyataan di bawah.<br>(1 = Sangat Tidak Setuju, 5 = Sangat Setuju)</p>
+                    
+                    <!-- Soalan B1 -->
                     <div class="mb-10 p-4 border border-gray-100 rounded-lg shadow-sm bg-white">
                         <label class="block text-md font-medium text-gray-900">1. Hab STEM PPD Miri berperanan penting dalam menyokong pelestarian pendidikan STEM di daerah Miri.</label>
                         <p class="block text-sm text-gray-500 mt-1 italic">/ STEM Hub PPD Miri plays an important role in supporting the sustainability of STEM education in Miri district.</p>
@@ -156,6 +180,8 @@
                         </div>
                         <div class="flex justify-between text-xs text-gray-500 mt-2 px-1"><span>Sangat Tidak Setuju</span><span>Sangat Setuju</span></div>
                     </div>
+                    
+                    <!-- Soalan B2 -->
                     <div class="mb-10 p-4 border border-gray-100 rounded-lg shadow-sm bg-white">
                         <label class="block text-md font-medium text-gray-900">2. Bengkel dan program yang dijalankan oleh Hab STEM PPD Miri sepanjang tahun 2025 telah membantu meningkatkan kompetensi guru dalam pengukuhan pelaksanaan STEM di sekolah.</label>
                         <p class="block text-sm text-gray-500 mt-1 italic">/ The workshops and programs organized by STEM Hub PPD Miri in 2025 have helped enhance teachers’ competencies in strengthening STEM implementation in schools.</p>
@@ -168,6 +194,8 @@
                         </div>
                         <div class="flex justify-between text-xs text-gray-500 mt-2 px-1"><span>Sangat Tidak Setuju</span><span>Sangat Setuju</span></div>
                     </div>
+
+                    <!-- Soalan B3: Cadangan -->
                     <div class="mb-6">
                         <label for="cadangan" class="block text-md font-medium text-gray-900">3. Apakah cadangan anda bagi memperkukuh dan melestarikan lagi pelaksanaan inisiatif STEM melalui Hab STEM PPD Miri pada masa akan datang?</label>
                         <p class="block text-sm text-gray-500 mt-1 mb-4 italic">/ What are your suggestions to further strengthen and sustain STEM initiatives through STEM Hub PPD Miri in the future?</p>
@@ -175,7 +203,7 @@
                     </div>
                 </section>
                 
-                <!-- (Butang Hantar - tidak berubah) -->
+                <!-- Butang Hantar -->
                 <div class="pt-6 border-t border-gray-200">
                     <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
@@ -187,31 +215,31 @@
         </div>
     </div>
 
-    <!-- (Modal Kongsi - DIKEMAS KINI) -->
+    <!-- Modal Kongsi (Selepas Hantar) -->
     <div id="share-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 fade-in">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full text-center transform transition-all scale-100 opacity-100">
+            <!-- Ikon 'Checkmark' -->
             <svg class="w-20 h-20 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Terima Kasih!</h2>
             <p class="text-lg text-gray-600 mb-6">Maklum balas anda telah berjaya dihantar.</p>
+            
+            <!-- Bahagian Kongsi -->
             <div class="bg-gray-100 p-6 rounded-lg border border-gray-200">
                 <p class="text-md font-medium text-gray-800 mb-4">Sudi tak kongsikan lawatan anda ke booth kami di Facebook?</p>
                 <textarea id="share-text-preview" class="w-full h-28 p-3 border border-gray-300 rounded-lg bg-gray-50 text-sm text-gray-700 mb-4 resize-none" readonly></textarea>
+                <!-- Butang Kongsi FB -->
                 <a id="fb-share-btn" href="#" target="_blank" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4-788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0Z"/></svg>
                     <span>Kongsi ke Facebook</span>
                 </a>
                 
-                <!-- =============================================================================== -->
-                <!-- (DIKEMAS KINI) Pautan href ditukar -->
-                <!-- =============================================================================== -->
+                <!-- Butang Daftar SPARK -->
                 <a id="splg-btn" href="https://pahanmy.github.io/spark/participant.html?kod=885-42486" target="_blank" class="w-full mt-4 bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                     <span>✅ Daftar Kehadiran (SPARK)</span>
                 </a>
-                <!-- =============================================================================== -->
-                <!-- (TAMAT) Kemas kini -->
-                <!-- =============================================================================== -->
 
             </div>
+            <!-- Butang Tutup Modal -->
             <button id="close-modal-btn" class="mt-6 text-sm text-gray-500 hover:text-gray-700 font-medium transition-all">
                 Mungkin lain kali
             </button>
@@ -219,161 +247,200 @@
     </div>
 
     <!-- =============================================================================== -->
-    <!-- SCRIPT DIKEMAS KINI UNTUK FIREBASE & KAUNTER -->
+    <!-- SCRIPT UTAMA (TERMASUK FIREBASE & LOGIK BORANG) -->
     <!-- =============================================================================== -->
     <script type="module">
-        // --- Import Firebase (DIKEMAS KINI untuk onSnapshot) ---
+        // --- Import Modul Firebase ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, addDoc, collection, serverTimestamp, setLogLevel, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // --- Mulakan Firebase (SEDIA ADA) ---
-        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        // --- Konfigurasi dan Mulakan Firebase ---
+        // (DIKEMAS KINI) Menggunakan konfigurasi yang anda berikan
+        const firebaseConfig = {
+          apiKey: "AIzaSyB1-LviGV6HLYehXwXnlaELwOkujMadfuk",
+          authDomain: "stemhub-ef028.firebaseapp.com",
+          projectId: "stemhub-ef028",
+          storageBucket: "stemhub-ef028.firebasestorage.app",
+          messagingSenderId: "1059097892173",
+          appId: "1:1059097892173:web:d560576796512a841a9304"
+        };
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         const auth = getAuth(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        // const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id'; // DIBUANG
         
-        // Aktifkan log debug
+        // Aktifkan log debug untuk Firebase
         setLogLevel('Debug');
         
-        let userId = null; 
+        let userId = null; // Pembolehubah untuk menyimpan ID pengguna yang disahkan
 
-        // --- Logik Pengesahan (Auth) (SEDIA ADA) ---
+        // --- Logik Pengesahan (Auth) ---
+        // Pantau perubahan status log masuk
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 console.log("Firebase user is signed in:", user.uid);
-                userId = user.uid;
+                userId = user.uid; // Simpan ID pengguna apabila berjaya log masuk
             } else {
                 console.log("Firebase user is signed out.");
                 userId = null;
             }
         });
 
-        // --- (DIPINDAHKAN) Ambil Elemen Kaunter ---
+        // --- Ambil Elemen Kaunter ---
         const counterDisplay = document.getElementById('counter-display');
         const submissionCountElement = document.getElementById('submission-count');
         
-        // --- (DIPINDAHKAN) Tentukan Laluan Koleksi Awam ---
-        const publicCollectionPath = `/artifacts/${appId}/public/data/maklumbalas_stem_awam`;
-        const q = collection(db, publicCollectionPath); // Sediakan query
+        // --- Tentukan Laluan Koleksi Awam (Public) ---
+        // (DIKEMAS KINI) Laluan ditukar kepada koleksi root
+        const publicCollectionPath = `maklumbalas_stem_awam`;
+        const q = collection(db, publicCollectionPath); // Sediakan query untuk koleksi ini
 
-        // --- (DIKEMAS KINI) Logik Log Masuk & Pasang Listener ---
-        // Lakukan log masuk sekali DAN PASANG LISTENER SELEPAS LOG MASUK
+        // --- Logik Log Masuk & Pasang Listener Kaunter (Async) ---
         (async () => {
             try {
-                // 1. Lakukan Log Masuk
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                    console.log("Signed in with custom token.");
-                } else {
-                    await signInAnonymously(auth);
-                    console.log("Signed in anonymously.");
-                }
+                // ===============================================================================
+                // (PEMBETULAN) Alih keluar 'signInWithCustomToken'
+                // Kita tidak boleh guna token sandbox dengan projek Firebase anda sendiri.
+                // Sentiasa guna 'signInAnonymously'
+                // ===============================================================================
+                await signInAnonymously(auth);
+                console.log("Signed in anonymously.");
+                // ===============================================================================
+                // (TAMAT PEMBETULAN)
+                // ===============================================================================
 
-                // 2. (BAHARU) Pasang Listener Kaunter SELEPAS log masuk berjaya
-                // Ini memastikan kita ada kebenaran (auth != null) sebelum cuba membaca
+
+                // 2. Pasang Listener Kaunter (onSnapshot) SELEPAS log masuk berjaya
+                // Ini penting untuk memastikan kita ada kebenaran (auth != null) sebelum cuba membaca data
                 console.log("Authentication successful. Attaching snapshot listener...");
                 onSnapshot(q, (snapshot) => {
-                    const count = snapshot.size; // Dapatkan jumlah dokumen dalam koleksi
+                    const count = snapshot.size; // Kira jumlah dokumen dalam koleksi
                     console.log("Current submission count:", count);
                     if (submissionCountElement) {
-                        submissionCountElement.textContent = count; // Kemas kini nombor
+                        submissionCountElement.textContent = count; // Kemas kini nombor pada UI
                     }
                     if (counterDisplay) {
-                        counterDisplay.classList.remove('opacity-0'); // Paparkan kaunter (fade in)
+                        counterDisplay.classList.remove('opacity-0'); // Paparkan elemen kaunter
                     }
                 }, (error) => {
-                    // Jika ralat masih berlaku, ia mungkin isu rules di server
+                    // Tangani ralat jika listener gagal (cth: isu 'security rules')
                     console.error("Error listening to submission count (after auth):", error);
                     if (counterDisplay) {
-                        // Tunjuk ralat kecil jika gagal
+                        // Papar mesej ralat mesra pengguna pada kaunter
                         counterDisplay.innerHTML = `<svg class="h-5 w-5 text-red-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> <span class="text-sm text-red-100">Gagal memuatkan kaunter</span>`;
                         counterDisplay.classList.remove('opacity-0');
                     }
                 });
 
             } catch (error) {
-                // Ini untuk ralat log masuk (Auth)
+                // Tangani ralat jika log masuk (Auth) gagal
                 console.error("Firebase Auth Error:", error);
                 const errorDiv = document.createElement('div');
                 errorDiv.className = "bg-red-600 text-white p-3 text-center fixed top-0 left-0 right-0 z-50";
                 errorDiv.textContent = "Amaran: Tidak dapat menyambung ke pangkalan data. Sila muat semula.";
-                document.body.prepend(errorDiv);
+                document.body.prepend(errorDiv); // Tunjuk amaran di atas skrin
             }
         })();
         
         
-        // --- Ambil Elemen Borang (SEDIA ADA) ---
+        // --- Ambil Elemen Borang & Modal ---
         const form = document.getElementById('feedback-form');
         const shareModal = document.getElementById('share-modal');
         const closeModalButton = document.getElementById('close-modal-btn');
         const fbShareBtn = document.getElementById('fb-share-btn');
         const shareTextPreview = document.getElementById('share-text-preview');
 
-        // --- (DIPINDAHKAN) Logik Kaunter Realtime ---
-        // Kod onSnapshot() telah dipindahkan ke dalam blok async di atas
-        // untuk memastikan ia berjalan selepas pengesahan.
 
-
-        // --- Logik 'Lain-lain' (SEDIA ADA) ---
+        // --- Logik Input 'Lain-lain' untuk Jawatan ---
         const radioButtonsJawatan = document.querySelectorAll('input[name="jawatan"]');
         const lainInput = document.getElementById('jawatan-lain-input');
         const lainRadio = document.getElementById('jawatan-lain');
+        
+        // (DIKEMAS KINI) - Logik ditambah untuk memaparkan/menyembunyikan soalan Stesen/Negeri
         radioButtonsJawatan.forEach(radio => {
-            radio.addEventListener('change', () => {
+            radio.addEventListener('change', (event) => { // 'event' ditambah
+                const selectedValue = event.target.value; // Dapatkan nilai radio yang dipilih
+
+                // === LOGIK 1: Input 'Lain-lain' (Sedia Ada) ===
                 if (lainRadio.checked) {
-                    lainInput.disabled = false;
-                    lainInput.classList.add('bg-white');
-                    lainInput.focus();
+                    lainInput.disabled = false; // Aktifkan input teks
+                    lainInput.classList.add('bg-white'); // Tukar latar belakang
+                    lainInput.focus(); // Fokus pada input
                 } else {
-                    lainInput.disabled = true;
-                    lainInput.value = '';
-                    lainInput.classList.remove('bg-white');
+                    lainInput.disabled = true; // Lumpuhkan input teks
+                    lainInput.value = ''; // Kosongkan nilai
+                    lainInput.classList.remove('bg-white'); // Kembalikan latar belakang asal
+                }
+
+                // === LOGIK 2: Tunjuk/Sembunyi Blok Sekolah (BAHARU) ===
+                const schoolInfoBlock = document.getElementById('school-info-block');
+                const stesenInput = document.getElementById('stesen');
+                const negeriInput = document.getElementById('negeri');
+                
+                // Tentukan peranan yang PERLU isi maklumat sekolah
+                const educationRoles = ['Guru STEM', 'Guru Bukan STEM', 'Pentadbir Sekolah', 'Murid / Pelajar'];
+
+                if (educationRoles.includes(selectedValue)) {
+                    // Jika peranan berkaitan pendidikan, TUNJUKKAN blok
+                    schoolInfoBlock.classList.remove('hidden');
+                    // Dan jadikan ia DIWAJIBKAN
+                    stesenInput.required = true;
+                    negeriInput.required = true;
+                } else {
+                    // Jika tidak (cth: Orang Awam, Rakan Strategik), SEMBUNYIKAN blok
+                    schoolInfoBlock.classList.add('hidden');
+                    // Dan pastikan ia TIDAK DIWAJIBKAN
+                    stesenInput.required = false;
+                    negeriInput.required = false;
+                    // Kosongkan nilai untuk mengelak data silap
+                    stesenInput.value = '';
+                    negeriInput.value = ''; 
                 }
             });
         });
 
-        // --- Logik UPPERCASE (SEDIA ADA) ---
+        // --- Logik Tukar Teks ke HURUF BESAR (UPPERCASE) ---
         const fieldsToUppercase = ['stesen', 'nama', 'jawatan-lain-input', 'cadangan'];
         const forceUppercase = (event) => {
             const target = event.target;
-            const start = target.selectionStart;
+            const start = target.selectionStart; // Simpan kedudukan kursor
             const end = target.selectionEnd;
-            target.value = target.value.toUpperCase();
-            target.setSelectionRange(start, end);
+            target.value = target.value.toUpperCase(); // Tukar nilai ke huruf besar
+            target.setSelectionRange(start, end); // Tetapkan semula kedudukan kursor
         };
         fieldsToUppercase.forEach(id => {
             const element = document.getElementById(id);
             if (element) {
-                element.addEventListener('input', forceUppercase);
+                element.addEventListener('input', forceUppercase); // Pasang 'listener' pada setiap input
             }
         });
 
-        // --- Logik Kongsi Facebook (SEDIA ADA) ---
+        // --- Logik Kongsi Facebook ---
         const fbQuote = "Saya dah melawat booth Hab STEM PPD Miri di Pameran STEM 2025 (23 Oktober 2025)! Sangat menarik! 🚀 #STEMMiri2025 #PameranSTEM #PPDMiri";
-        const fbUrl = "https://www.facebook.com/ppdmiri/";
+        const fbUrl = "https://www.facebook.com/ppdmiri/"; // URL sasaran
         const fbHashtag = "HabSTEMPPDMiri";
+        // Bina pautan kongsi
         const shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fbUrl)}&quote=${encodeURIComponent(fbQuote)}&hashtag=${encodeURIComponent(fbHashtag)}`;
-        fbShareBtn.setAttribute('href', shareLink);
-        shareTextPreview.value = fbQuote;
+        fbShareBtn.setAttribute('href', shareLink); // Tetapkan pautan pada butang
+        shareTextPreview.value = fbQuote; // Papar teks dalam 'textarea'
 
         
-        // --- Logik PENGHANTARAN BORANG (DIKEMAS KINI UNTUK FIREBASE) ---
+        // --- Logik PENGHANTARAN BORANG (Form Submit) ---
         
-        form.addEventListener('submit', async function(event) { // Tambah 'async'
-            event.preventDefault(); 
+        form.addEventListener('submit', async function(event) { // Jadikan fungsi 'async'
+            event.preventDefault(); // Halang borang daripada 'submit' cara biasa
 
-            // 1. Semak jika pengesahan Firebase sudah sedia (SEDIA ADA)
+            // 1. Semak jika pengguna telah disahkan (Auth)
             if (!userId) {
                 console.error("User is not authenticated. Cannot submit.");
                 const submitButton = form.querySelector('button[type="submit"]');
                 submitButton.innerHTML = "<span>Ralat: Sambungan Gagal. Sila Muat Semula.</span>";
                 submitButton.classList.add('bg-red-600', 'hover:bg-red-700'); 
-                return; 
+                return; // Berhenti jika tiada ID pengguna
             }
 
-            // 2. Kumpul Data (SEDIA ADA)
+            // 2. Kumpul Data Borang
             let jawatanValue = document.querySelector('input[name="jawatan"]:checked').value;
             if (jawatanValue === 'Lain-lain') {
                 jawatanValue = document.getElementById('jawatan-lain-input').value;
@@ -381,18 +448,21 @@
             const soalan_1_checked = document.querySelector('input[name="soalan_1"]:checked');
             const soalan_2_checked = document.querySelector('input[name="soalan_2"]:checked');
 
+            // Semak jika soalan 'rating' telah dijawab
             if (!soalan_1_checked || !soalan_2_checked) {
                  const submitButton = form.querySelector('button[type="submit"]');
                  submitButton.innerHTML = "<span>Sila lengkapkan Seksyen B</span>";
                  submitButton.classList.add('bg-yellow-500', 'hover:bg-yellow-600');
+                 // Kembalikan teks butang asal selepas 2 saat
                  setTimeout(() => {
                     submitButton.innerHTML = "<span>Hantar Maklum Balas</span>";
                     submitButton.classList.remove('bg-yellow-500', 'hover:bg-yellow-600');
                  }, 2000);
-                 return; 
+                 return; // Berhenti jika tidak lengkap
             }
             
-            // (DIKEMAS KINI) - Medan 'nama' dibuang untuk privasi koleksi awam
+            // Sediakan objek data untuk dihantar ke Firestore
+            // (Medan 'nama' dibuang untuk privasi koleksi awam)
             const dataToSend = {
                 stesen: document.getElementById('stesen').value,
                 negeri: document.getElementById('negeri').value,
@@ -402,60 +472,65 @@
                 soalan_2: soalan_2_checked.value,
                 cadangan: document.getElementById('cadangan').value,
                 dihantarOleh: userId, // Simpan ID pengguna (tanpa nama)
-                dihantarPada: serverTimestamp() 
+                dihantarPada: serverTimestamp() // Guna 'timestamp' pelayan
             };
 
-            // 3. Tunjukkan 'Loading' (SEDIA ADA)
+            // 3. Tunjukkan Status 'Loading' pada Butang Hantar
             const submitButton = form.querySelector('button[type="submit"]');
             const originalButtonHTML = submitButton.innerHTML;
             submitButton.disabled = true;
             submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Menghantar...`;
+            // Buang kelas ralat (jika ada dari cubaan sebelumnya)
             submitButton.classList.remove('bg-red-600', 'hover:bg-red-700', 'bg-yellow-500', 'hover:bg-yellow-600');
 
 
-            // 4. Hantar Data ke FIREBASE (DIKEMAS KINI ke laluan awam)
+            // 4. Hantar Data ke FIREBASE (guna 'await' sebab ia 'async')
             try {
-                // (DIKEMAS KINI) Guna laluan koleksi awam
+                // Guna laluan koleksi awam yang telah ditakrifkan
                 const docRef = await addDoc(collection(db, publicCollectionPath), dataToSend);
                 
                 console.log('Success! Document written with ID:', docRef.id);
 
-                // 5. Tunjukkan Modal Kejayaan (SEDIA ADA)
-                // Kita tidak sembunyikan borang, cuma reset
-                // form.classList.add('hidden'); // DIBUANG
-                shareModal.classList.remove('hidden'); 
-                window.scrollTo({ top: 0, behavior: 'smooth' });
+                // 5. Paparkan Modal Kejayaan
+                shareModal.classList.remove('hidden'); // Papar modal
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Skrol ke atas
                 
-                form.reset(); 
-                // Dayakan semula input 'lain-lain' jika ia dilumpuhkan oleh reset
+                form.reset(); // Reset borang
+                
+                // Pastikan input 'lain-lain' dilumpuhkan semula selepas 'reset'
                 radioButtonsJawatan.forEach(radio => {
-                    if (radio.value === 'Lain-lain' && !radio.chGcked) {
+                    if (radio.value === 'Lain-lain' && !radio.checked) {
                         lainInput.disabled = true;
                         lainInput.value = '';
                         lainInput.classList.remove('bg-white');
                     }
                 });
+                
+                // Sembunyikan semula blok sekolah selepas reset
+                const schoolInfoBlock = document.getElementById('school-info-block');
+                schoolInfoBlock.classList.add('hidden');
+                document.getElementById('stesen').required = false;
+                document.getElementById('negeri').required = false;
 
+
+                // Kembalikan butang hantar ke keadaan asal
                 submitButton.disabled = false;
                 submitButton.innerHTML = originalButtonHTML;
 
             } catch (error) {
+                // 6. Tangani Ralat jika Gagal Hantar
                 console.error('Error adding document:', error);
                 submitButton.disabled = false;
                 submitButton.innerHTML = "<span>Ralat: Gagal Hantar. Cuba Lagi.</span>";
-                submitButton.classList.add('bg-red-600', 'hover:bg-red-700');
+                submitButton.classList.add('bg-red-600', 'hover:bg-red-700'); // Jadikan butang merah
             }
         });
 
-        // --- Logik tutup modal (SEDIA ADA) ---
+        // --- Logik Tutup Modal ---
         closeModalButton.addEventListener('click', function() {
-            shareModal.classList.add('hidden');
-            // Borang tidak lagi disembunyikan, jadi tak perlu papar semula
-            // form.classList.remove('hidden'); // DIBUANG
+            shareModal.classList.add('hidden'); // Sembunyikan modal
         });
     </script>
 </body>
 </html>
-
-
 
