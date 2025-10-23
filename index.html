@@ -327,14 +327,12 @@
                     jawatanValue = document.getElementById('jawatan-lain-input').value;
                 }
                 
-                // Pastikan nilai untuk soalan radio yang 'required' wujud
                 const soalan_1_checked = document.querySelector('input[name="soalan_1"]:checked');
                 const soalan_2_checked = document.querySelector('input[name="soalan_2"]:checked');
 
-                // Semakan ringkas jika ada radio button yang tidak dipilih
                 if (!soalan_1_checked || !soalan_2_checked) {
                      alert("Sila lengkapkan semua soalan di Seksyen B.");
-                     return; // Hentikan penghantaran
+                     return; 
                 }
 
                 const dataToSend = {
@@ -359,15 +357,13 @@
                     Menghantar...
                 `;
 
-                // --- 3. Hantar Data ke Google Apps Script ---
+                // --- 3. Hantar Data ke Google Apps Script (KAEDAH BARU URLSearchParams) ---
                 fetch(scriptURL, {
                     method: 'POST',
                     mode: 'cors',
                     cache: 'no-cache',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(dataToSend),
+                    // TIADA 'headers'
+                    body: new URLSearchParams(dataToSend), // Ini akan elak ralat CORS preflight
                     redirect: 'follow'
                 })
                 .then(response => response.json())
@@ -394,7 +390,6 @@
             // --- Logik untuk tutup modal ---
             closeModalButton.addEventListener('click', function() {
                 shareModal.classList.add('hidden');
-                // Nota: Kita biarkan borang tersembunyi selepas berjaya hantar
             });
         });
     </script>
