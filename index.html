@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maklum Balas Pelestarian STEM 2025 – Hab STEM PPD Miri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Menggunakan font Inter sebagai default */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Sembunyikan 'spinner' pada input nombor */
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+        /* Animasi untuk mesej kejayaan */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class="container mx-auto max-w-3xl my-12 px-4">
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
+            
+            <div class="bg-gradient-to-r from-blue-600 to-purple-700 p-8 text-white relative">
+                <svg class="absolute top-4 right-4 h-16 w-16 text-white opacity-20" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    <path d="m12 11 4 2"></path>
+                    <path d="m12 11-4 2"></path>
+                    <path d="m12 11-4-2"></path>
+                    <path d="m12 11 4-2"></path>
+                    <path d="m12 15 4 2"></path>
+                    <path d="m12 15-4 2"></path>
+                    <path d="m6 9 4 2"></path>
+                    <path d="m14 9-4 2"></path>
+                </svg>
+                <h1 class="text-3xl font-bold mb-3 relative z-10">Maklum Balas Pelestarian STEM 2025</h1>
+                <h2 class="text-xl font-semibold text-blue-100 relative z-10">Hab STEM PPD Miri</h2>
+                
+                <div class="mt-6 border-t border-blue-500 pt-4 text-blue-100 text-sm space-y-2 relative z-10">
+                    <p>Hab STEM PPD Miri berfungsi sebagai pusat rujukan dan pemangkin pelaksanaan inisiatif STEM di daerah Miri.</p>
+                    <p>Borang ini bertujuan untuk mendapatkan maklum balas daripada guru-guru dan rakan strategik mengenai keberkesanan Hab STEM PPD Miri dalam menyokong pelestarian serta pengukuhan pendidikan STEM pada tahun 2025.</p>
+                    <p class="font-semibold mt-4">Maklum balas anda amat penting bagi penambahbaikan program dan strategi pelaksanaan STEM pada masa akan datang. Terima kasih atas masa dan kerjasama anda. 🙏</p>
+                </div>
+            </div>
+
+            <form id="feedback-form" class="p-8 space-y-10">
+                
+                <section>
+                    <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-gray-200">
+                        <svg class="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <h2 class="text-2xl font-semibold text-gray-900">SEKSYEN A: PROFIL RESPONDEN</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="stesen" class="block text-sm font-medium text-gray-700 mb-2">1. Stesen Bertugas/Sekolah</label>
+                            <input type="text" id="stesen" name="stesen" placeholder="Cth: PPD Miri / SMK ABC" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+                        </div>
+
+                        <div>
+                            <label for="negeri" class="block text-sm font-medium text-gray-700 mb-2">2. Negeri Bertugas</label>
+                            <select id="negeri" name="negeri" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white" required>
+                                <option value="" disabled selected>Sila pilih negeri anda</option>
+                                <option value="Johor">Johor</option>
+                                <option value="Kedah">Kedah</option>
+                                <option value="Kelantan">Kelantan</option>
+                                <option value="Melaka">Melaka</option>
+                                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                <option value="Pahang">Pahang</option>
+                                <option value="Perak">Perak</option>
+                                <option value="Perlis">Perlis</option>
+                                <option value="Pulau Pinang">Pulau Pinang</option>
+                                <option value="Sabah">Sabah</option>
+                                <option value="Sarawak">Sarawak</option>
+                                <option value="Selangor">Selangor</option>
+                                <option value="Terengganu">Terengganu</option>
+                                <option value="WP Kuala Lumpur">WP Kuala Lumpur</option>
+                                <option value="WP Labuan">WP Labuan</option>
+                                <option value="WP Putrajaya">WP Putrajaya</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="mt-8">
+                        <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">3. Nama Penuh</label>
+                        <input type="text" id="nama" name="nama" placeholder="Cth: Ali bin Abu" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
+                    </div>
+
+                    <div class="mt-8">
+                        <label class="block text-sm font-medium text-gray-700 mb-3">4. Jawatan / Peranan</label>
+                        <div class="space-y-3">
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
+                                <input id="jawatan-guru-stem" name="jawatan" type="radio" value="Guru STEM" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500" required>
+                                <label for="jawatan-guru-stem" class="ml-3 block text-sm text-gray-800">Guru STEM</label>
+                            </div>
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
+                                <input id="jawatan-guru-bukan-stem" name="jawatan" type="radio" value="Guru Bukan STEM" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="jawatan-guru-bukan-stem" class="ml-3 block text-sm text-gray-800">Guru Bukan STEM</label>
+                            </div>
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
+                                <input id="jawatan-pentadbir" name="jawatan" type="radio" value="Pentadbir Sekolah" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="jawatan-pentadbir" class="ml-3 block text-sm text-gray-800">Pentadbir Sekolah</label>
+                            </div>
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
+                                <input id="jawatan-rakan" name="jawatan" type="radio" value="Rakan Strategik / Komuniti" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="jawatan-rakan" class="ml-3 block text-sm text-gray-800">Rakan Strategik / Komuniti</label>
+                            </div>
+                            <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
+                                <input id="jawatan-lain" name="jawatan" type="radio" value="Lain-lain" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                                <label for="jawatan-lain" class="ml-3 block text-sm text-gray-800">Lain-lain:</label>
+                                <input type="text" id="jawatan-lain-input" name="jawatan_lain" class="ml-2 flex-grow px-3 py-1 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition-all bg-transparent" placeholder="Sila nyatakan" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-gray-200">
+                        <svg class="w-8 h-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M3 3v18h18"></path>
+                            <path d="M7 12v5h4"></path>
+                            <path d="M11 17V7h4"></path>
+                            <path d="m15 17-4-4h8"></path>
+                        </svg>
+                        <h2 class="text-2xl font-semibold text-gray-900">SEKSYEN B: MAKLUM BALAS TERHADAP HAB STEM</h2>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-8">Arahan: Sila nyatakan tahap persetujuan anda bagi setiap pernyataan di bawah.<br>(1 = Sangat Tidak Setuju, 5 = Sangat Setuju)</p>
+
+                    <div class="mb-10 p-4 border border-gray-100 rounded-lg shadow-sm bg-white">
+                        <label class="block text-md font-medium text-gray-900">1. Hab STEM PPD Miri berperanan penting dalam menyokong pelestarian pendidikan STEM di daerah Miri.</label>
+                        <p class="block text-sm text-gray-500 mt-1 italic">/ STEM Hub PPD Miri plays an important role in supporting the sustainability of STEM education in Miri district.</p>
+                        
+                        <div class="flex justify-center space-x-2 md:space-x-4 mt-5" role="radiogroup">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_1" value="1" class="sr-only" required>
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-red-100 hover:border-red-400 peer-checked:bg-red-600 peer-checked:text-white peer-checked:border-red-600 text-2xl">😠</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_1" value="2" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-orange-100 hover:border-orange-400 peer-checked:bg-orange-500 peer-checked:text-white peer-checked:border-orange-500 text-2xl">😟</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_1" value="3" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-yellow-100 hover:border-yellow-400 peer-checked:bg-yellow-500 peer-checked:text-white peer-checked:border-yellow-500 text-2xl">😐</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_1" value="4" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-blue-100 hover:border-blue-400 peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-500 text-2xl">🙂</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_1" value="5" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-green-100 hover:border-green-400 peer-checked:bg-green-600 peer-checked:text-white peer-checked:border-green-600 text-2xl">😄</div>
+                            </label>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2 px-1">
+                            <span>Sangat Tidak Setuju</span>
+                            <span>Sangat Setuju</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-10 p-4 border border-gray-100 rounded-lg shadow-sm bg-white">
+                        <label class="block text-md font-medium text-gray-900">2. Bengkel dan program yang dijalankan oleh Hab STEM PPD Miri sepanjang tahun 2025 telah membantu meningkatkan kompetensi guru dalam pengukuhan pelaksanaan STEM di sekolah.</label>
+                        <p class="block text-sm text-gray-500 mt-1 italic">/ The workshops and programs organized by STEM Hub PPD Miri in 2025 have helped enhance teachers’ competencies in strengthening STEM implementation in schools.</p>
+                        
+                        <div class="flex justify-center space-x-2 md:space-x-4 mt-5" role="radiogroup">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_2" value="1" class="sr-only" required>
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-red-100 hover:border-red-400 peer-checked:bg-red-600 peer-checked:text-white peer-checked:border-red-600 text-2xl">😠</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_2" value="2" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-orange-100 hover:border-orange-400 peer-checked:bg-orange-500 peer-checked:text-white peer-checked:border-orange-500 text-2xl">😟</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_2" value="3" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-yellow-100 hover:border-yellow-400 peer-checked:bg-yellow-500 peer-checked:text-white peer-checked:border-yellow-500 text-2xl">😐</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_2" value="4" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-blue-100 hover:border-blue-400 peer-checked:bg-blue-500 peer-checked:text-white peer-checked:border-blue-500 text-2xl">🙂</div>
+                            </label>
+                            <label class="cursor-pointer">
+                                <input type="radio" name="soalan_2" value="5" class="sr-only">
+                                <div class="w-12 h-12 rounded-full border-2 border-gray-300 flex items-center justify-center font-bold text-gray-600 transition-all duration-300 hover:bg-green-100 hover:border-green-400 peer-checked:bg-green-600 peer-checked:text-white peer-checked:border-green-600 text-2xl">😄</div>
+                            </label>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-2 px-1">
+                            <span>Sangat Tidak Setuju</span>
+                            <span>Sangat Setuju</span>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <label for="cadangan" class="block text-md font-medium text-gray-900">3. Apakah cadangan anda bagi memperkukuh dan melestarikan lagi pelaksanaan inisiatif STEM melalui Hab STEM PPD Miri pada masa akan datang?</label>
+                        <p class="block text-sm text-gray-500 mt-1 mb-4 italic">/ What are your suggestions to further strengthen and sustain STEM initiatives through STEM Hub PPD Miri in the future?</p>
+                        <textarea id="cadangan" name="cadangan" rows="5" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" placeholder="Tulis cadangan anda di sini..."></textarea>
+                    </div>
+
+                </section>
+                
+                <div class="pt-6 border-t border-gray-200">
+                    <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
+                        <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                        <span>Hantar Maklum Balas</span>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div id="share-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 fade-in">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full text-center transform transition-all scale-100 opacity-100">
+            <svg class="w-20 h-20 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <h2 class="text-3xl font-bold text-gray-800 mb-2">Terima Kasih!</h2>
+            <p class="text-lg text-gray-600 mb-6">Maklum balas anda telah berjaya dihantar.</p>
+            
+            <div class="bg-gray-100 p-6 rounded-lg border border-gray-200">
+                <p class="text-md font-medium text-gray-800 mb-4">Sudi tak kongsikan lawatan anda ke booth kami di Facebook?</p>
+                
+                <textarea id="share-text-preview" class="w-full h-28 p-3 border border-gray-300 rounded-lg bg-gray-50 text-sm text-gray-700 mb-4 resize-none" readonly></textarea>
+                
+                <a id="fb-share-btn" href="#" target="_blank" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0Z"/></svg>
+                    <span>Kongsi ke Facebook</span>
+                </a>
+
+                <a id="splg-btn" href="https://pahanmy.github.io/spark/semak.html" target="_blank" class="w-full mt-4 bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
+                    <span>✅ Daftar Kehadiran (SPARK)</span>
+                </a>
+            </div>
+            
+            <button id="close-modal-btn" class="mt-6 text-sm text-gray-500 hover:text-gray-700 font-medium transition-all">
+                Mungkin lain kali
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('feedback-form');
+            const shareModal = document.getElementById('share-modal');
+            const closeModalButton = document.getElementById('close-modal-btn');
+            const fbShareBtn = document.getElementById('fb-share-btn');
+            const shareTextPreview = document.getElementById('share-text-preview');
+
+            // --- Logik untuk 'Lain-lain' (Kekal) ---
+            const radioButtonsJawatan = document.querySelectorAll('input[name="jawatan"]');
+            const lainInput = document.getElementById('jawatan-lain-input');
+            const lainRadio = document.getElementById('jawatan-lain');
+
+            radioButtonsJawatan.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (lainRadio.checked) {
+                        lainInput.disabled = false;
+                        lainInput.classList.add('bg-white');
+                        lainInput.focus();
+                    } else {
+                        lainInput.disabled = true;
+                        lainInput.value = '';
+                        lainInput.classList.remove('bg-white');
+                    }
+                });
+            });
+
+            // --- BAHAGIAN UNTUK UPPERCASE ---
+            const fieldsToUppercase = ['stesen', 'nama', 'jawatan-lain-input', 'cadangan'];
+            const forceUppercase = (event) => {
+                const target = event.target;
+                const start = target.selectionStart;
+                const end = target.selectionEnd;
+                target.value = target.value.toUpperCase();
+                target.setSelectionRange(start, end);
+            };
+            fieldsToUppercase.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', forceUppercase);
+                }
+            });
+            // --- TAMAT BAHAGIAN UPPERCASE ---
+
+            // --- Logik untuk Pautan Kongsi Facebook ---
+            const fbQuote = "Saya dah melawat booth Hab STEM PPD Miri di Pameran STEM 2025 (23 Oktober 2025)! Sangat menarik! 🚀 #STEMMiri2025 #PameranSTEM #PPDMiri";
+            const fbUrl = "https://www.facebook.com/ppdmiri/";
+            const fbHashtag = "HabSTEMPPDMiri";
+            
+            const shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fbUrl)}&quote=${encodeURIComponent(fbQuote)}&hashtag=${encodeURIComponent(fbHashtag)}`;
+            
+            fbShareBtn.setAttribute('href', shareLink);
+            shareTextPreview.value = fbQuote;
+
+            
+            // --- Logik untuk penghantaran borang ke Google Sheet ---
+            // ▼▼▼ URL DARI GOOGLE APPS SCRIPT ANDA ▼▼▼
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbx-GIz7All1Cp37v_JyElAGxfVV1F8XOsyxnYtgqZrQ2jwRqynBSlbw6bHiKsk8Q2Y8OQ/exec'; 
+            
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); 
+
+                // --- 1. Kumpul Data Borang ---
+                let jawatanValue = document.querySelector('input[name="jawatan"]:checked').value;
+                if (jawatanValue === 'Lain-lain') {
+                    jawatanValue = document.getElementById('jawatan-lain-input').value;
+                }
+                
+                // Pastikan nilai untuk soalan radio yang 'required' wujud
+                const soalan_1_checked = document.querySelector('input[name="soalan_1"]:checked');
+                const soalan_2_checked = document.querySelector('input[name="soalan_2"]:checked');
+
+                // Semakan ringkas jika ada radio button yang tidak dipilih
+                if (!soalan_1_checked || !soalan_2_checked) {
+                     alert("Sila lengkapkan semua soalan di Seksyen B.");
+                     return; // Hentikan penghantaran
+                }
+
+                const dataToSend = {
+                    stesen: document.getElementById('stesen').value,
+                    negeri: document.getElementById('negeri').value,
+                    nama: document.getElementById('nama').value,
+                    jawatan: jawatanValue,
+                    soalan_1: soalan_1_checked.value,
+                    soalan_2: soalan_2_checked.value,
+                    cadangan: document.getElementById('cadangan').value
+                };
+
+                // --- 2. Tunjukkan 'Loading' pada butang ---
+                const submitButton = form.querySelector('button[type="submit"]');
+                const originalButtonHTML = submitButton.innerHTML;
+                submitButton.disabled = true;
+                submitButton.innerHTML = `
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Menghantar...
+                `;
+
+                // --- 3. Hantar Data ke Google Apps Script ---
+                fetch(scriptURL, {
+                    method: 'POST',
+                    mode: 'cors',
+                    cache: 'no-cache',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dataToSend),
+                    redirect: 'follow'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // --- 4. Tunjukkan Modal Kejayaan ---
+                    form.classList.add('hidden');
+                    shareModal.classList.remove('hidden'); 
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    form.reset(); 
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonHTML;
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Maaf, berlaku ralat semasa menghantar. Sila cuba lagi.');
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = originalButtonHTML;
+                });
+            });
+
+
+            // --- Logik untuk tutup modal ---
+            closeModalButton.addEventListener('click', function() {
+                shareModal.classList.add('hidden');
+                // Nota: Kita biarkan borang tersembunyi selepas berjaya hantar
+            });
+        });
+    </script>
+</body>
+</html>
