@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paparan Maklum Balas - Hab STEM PPD Miri</title>
+    <!-- Muat naik Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Muat naik Font Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- =============================================================================== -->
+    <!-- PERPUSTAKAAN (LIBRARIES) UNTUK EKSPORT -->
+    <!-- =============================================================================== -->
+    <!-- 1. jsPDF (Untuk PDF) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- 2. jsPDF AutoTable (Untuk jadual PDF yang cantik) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+    <!-- 3. SheetJS / xlsx.js (Untuk Excel) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <!-- =============================================================================== -->
+
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Gaya untuk Modal Kata Laluan */
+        #password-modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.5s ease-out; }
+        
+        /* Sembunyikan paparan cetak untuk elemen yang tidak perlu */
+        @media print {
+            #controls-section, #password-modal, #header-section {
+                display: none !important;
+            }
+            body {
+                background: none !important;
+            }
+            .data-container {
+                box-shadow: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen">
+
+    <!-- =============================================================================== -->
+    <!-- (BAHARU) Modal Kata Laluan -->
+    <!-- =============================================================================== -->
+    <div id="password-modal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50">
+        <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-sm w-full text-center fade-in">
+            <svg class="w-16 h-16 text-blue-600 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <h2 class="text-2xl font-bold text-gray-800 mb-3">Halaman Dilindungi</h2>
+            <p class="text-gray-600 mb-6">Sila masukkan kata laluan untuk melihat data respon.</p>
+            <input type="password" id="password-input" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" placeholder="Kata Laluan...">
+            <p id="password-error" class="text-red-500 text-sm mt-2 h-4"></p> <!-- Ruang untuk mesej ralat -->
+            <button id="password-submit-btn" class="w-full mt-4 bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300">
+                Masuk
+            </button>
+        </div>
+    </div>
+    <!-- =============================================================================== -->
+    <!-- (TAMAT) Modal Kata Laluan -->
+    <!-- =============================================================================== -->
+
+    <!-- Kontena Utama (Disembunyikan sehingga kata laluan betul) -->
+    <div id="main-content" class="container mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:px-8 hidden">
+        
+        <!-- Bahagian Header -->
+        <header id="header-section" class="mb-8">
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">Paparan Maklum Balas</h1>
+            <p class="text-lg text-gray-600">Hab STEM PPD Miri (Data dikemas kini secara *real-time*)</p>
+        </header>
+
+        <!-- Bahagian Kawalan (Eksport) -->
+        <section id="controls-section" class="mb-6 flex flex-col sm:flex-row gap-3">
+            <button id="export-pdf-btn" class="flex-1 bg-gradient-to-r from-red-500 to-red-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center space-x-2">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10l4 4v10a2 2 0 0 1-2 2z"></path><path d="M9 17h6"></path><path d="M9 13h6"></path></svg>
+                <span>Eksport PDF</span>
+            </button>
+            <button id="export-excel-btn" class="flex-1 bg-gradient-to-r from-green-500 to-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 flex items-center justify-center space-x-2">
+                <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h10l4 4v10a2 2 0 0 1-2 2z"></path><path d="M15 13l-4 4l-4-4"></path><path d="M11 17V9"></path></svg>
+                <span>Eksport Excel</span>
+            </button>
+        </section>
+
+        <!-- Bahagian Data -->
+        <div class="bg-white rounded-2xl shadow-2xl overflow-hidden data-container">
+            
+            <!-- Status Memuatkan (Loading) -->
+            <div id="loading-state" class="p-10 text-center">
+                <svg class="animate-spin h-10 w-10 text-blue-600 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <p class="text-lg font-medium text-gray-700">Memuatkan data dari Firebase...</p>
+            </div>
+
+            <!-- Status Ralat -->
+            <div id="error-state" class="p-10 text-center hidden">
+                <svg class="h-12 w-12 text-red-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+                <p class="text-lg font-bold text-red-700">Gagal Memuatkan Data</p>
+                <p class="text-gray-600 mt-1">Sila pastikan anda telah menetapkan 'Security Rules' di Firebase.</p>
+                <p id="error-message" class="text-sm text-gray-500 mt-2"></p>
+            </div>
+            
+            <!-- Kontena Jadual (Disembunyikan sehingga data sedia) -->
+            <div id="data-table-container" class="overflow-x-auto hidden">
+                <table id="data-table" class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Dihantar Pada</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Nama</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Jawatan / Peranan</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Stesen / Sekolah</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Negeri</th>
+                            <th scope="col" class="px-6 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider">Soalan 1 (Peranan)</th>
+                            <th scope="col" class="px-6 py-3 text-center text-xs font-bold text-gray-600 uppercase tracking-wider">Soalan 2 (Kompetensi)</th>
+                            <th scope="col" class="px-6 py-3 text-left text-xs font-bold text-gray-600 uppercase tracking-wider">Cadangan</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body" class="bg-white divide-y divide-gray-200">
+                        <!-- Baris (rows) data akan dimasukkan oleh JavaScript di sini -->
+                        <!-- Contoh baris data (akan dibuang oleh JS) -->
+                        <tr>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="8">
+                                Tiada data maklum balas ditemui.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- =============================================================================== -->
+    <!-- SCRIPT UTAMA (TERMASUK FIREBASE & LOGIK PAPARAN) -->
+    <!-- =============================================================================== -->
+    <script type="module">
+        // --- Import Modul Firebase ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, setLogLevel, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // --- Konfigurasi Firebase (Disalin dari borang 'index') ---
+        const firebaseConfig = {
+          apiKey: "AIzaSyB1-LviGV6HLYehXwXnlaELwOkujMadfuk",
+          authDomain: "stemhub-ef028.firebaseapp.com",
+          projectId: "stemhub-ef028",
+          storageBucket: "stemhub-ef028.firebasestorage.app",
+          messagingSenderId: "1059097892173",
+          appId: "1:1059097892173:web:d560576796512a841a9304"
+        };
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        
+        // Aktifkan log debug
+        setLogLevel('Debug');
+        
+        let userId = null; // Simpan ID pengguna
+        const KATA_LALUAN_ADMIN = "admin123"; // TUKAR SAYA!
+
+        // --- Ambil Elemen DOM ---
+        const passwordModal = document.getElementById('password-modal');
+        const passwordInput = document.getElementById('password-input');
+        const passwordSubmitBtn = document.getElementById('password-submit-btn');
+        const passwordError = document.getElementById('password-error');
+        const mainContent = document.getElementById('main-content');
+        
+        const loadingState = document.getElementById('loading-state');
+        const errorState = document.getElementById('error-state');
+        const errorMessage = document.getElementById('error-message');
+        const tableContainer = document.getElementById('data-table-container');
+        const tableBody = document.getElementById('data-table-body');
+        
+        const exportPdfBtn = document.getElementById('export-pdf-btn');
+        const exportExcelBtn = document.getElementById('export-excel-btn');
+
+        // --- Logik Kata Laluan ---
+        function checkPassword() {
+            if (passwordInput.value === KATA_LALUAN_ADMIN) {
+                console.log("Kata laluan betul. Memuatkan data...");
+                passwordModal.classList.add('opacity-0', 'pointer-events-none'); // Sembunyikan modal
+                mainContent.classList.remove('hidden'); // Papar kandungan utama
+                mainContent.classList.add('fade-in');
+                loadDataFromFirebase(); // Mulakan muat data
+            } else {
+                console.warn("Kata laluan salah.");
+                passwordError.textContent = "Kata laluan salah. Sila cuba lagi.";
+                passwordInput.classList.add('border-red-500', 'ring-red-500');
+            }
+        }
+        
+        // Pasang listener pada butang hantar kata laluan
+        passwordSubmitBtn.addEventListener('click', checkPassword);
+        // Benarkan hantar guna 'Enter'
+        passwordInput.addEventListener('keyup', (event) => {
+            if (event.key === 'Enter') {
+                checkPassword();
+            }
+        });
+
+        // --- Logik Utama Memuatkan Data ---
+        async function loadDataFromFirebase() {
+            try {
+                // 1. Pastikan pengguna disahkan (walaupun secara anonim)
+                await signInAnonymously(auth);
+                console.log("Signed in anonymously to read data.");
+
+                // 2. Tentukan laluan koleksi dan buat 'query'
+                const publicCollectionPath = `maklumbalas_stem_awam`;
+                // (DIKEMAS KINI) Susun data mengikut tarikh hantaran, yang terbaru di atas
+                const q = query(collection(db, publicCollectionPath), orderBy("dihantarPada", "desc"));
+
+                // 3. Pasang 'onSnapshot' untuk data real-time
+                console.log("Attaching snapshot listener...");
+                onSnapshot(q, (snapshot) => {
+                    console.log("Received snapshot, doc count:", snapshot.size);
+                    loadingState.classList.add('hidden'); // Sembunyi 'loading'
+
+                    if (snapshot.empty) {
+                        // Jika tiada data
+                        tableBody.innerHTML = `<tr><td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500" colspan="8">Tiada data maklum balas ditemui.</td></tr>`;
+                        tableContainer.classList.remove('hidden');
+                        return;
+                    }
+                    
+                    // Jika ada data, proses dan papar
+                    const submissions = [];
+                    snapshot.forEach(doc => {
+                        submissions.push(doc.data());
+                    });
+                    
+                    renderTable(submissions); // Panggil fungsi untuk papar jadual
+                    tableContainer.classList.remove('hidden'); // Tunjuk jadual
+                    errorState.classList.add('hidden'); // Pastikan ralat tersembunyi
+
+                }, (error) => {
+                    // Tangani ralat jika 'onSnapshot' gagal
+                    console.error("Error listening to snapshot:", error);
+                    loadingState.classList.add('hidden');
+                    errorState.classList.remove('hidden');
+                    errorMessage.textContent = error.message;
+                });
+
+            } catch (authError) {
+                // Tangani ralat jika 'signInAnonymously' gagal
+                console.error("Firebase Auth Error:", authError);
+                loadingState.classList.add('hidden');
+                errorState.classList.remove('hidden');
+                errorMessage.textContent = authError.message;
+            }
+        }
+        
+        // --- Fungsi Memaparkan Jadual (Render Table) ---
+        function renderTable(dataArray) {
+            // Kosongkan badan jadual
+            tableBody.innerHTML = '';
+            
+            // Layan setiap item data
+            dataArray.forEach(data => {
+                // Cipta baris (row) baharu
+                const tr = document.createElement('tr');
+                tr.className = "hover:bg-gray-50 transition-colors";
+                
+                // Format data (termasuk 'fallback' jika tiada)
+                const formattedDate = data.dihantarPada 
+                                    ? data.dihantarPada.toDate().toLocaleString('ms-MY', { day: '2-digit', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' })
+                                    : '-';
+                const nama = data.nama || '-';
+                const jawatan = data.jawatan || '-';
+                const stesen = data.stesen || '-';
+                const negeri = data.negeri || '-';
+                const soalan1 = data.soalan_1 || '-';
+                const soalan2 = data.soalan_2 || '-';
+                const cadangan = data.cadangan || '-';
+
+                // Tambah sel (cells) pada baris
+                tr.innerHTML = `
+                    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">${formattedDate}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">${nama}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${jawatan}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${stesen}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">${negeri}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 text-center font-bold">${soalan1}</td>
+                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-800 text-center font-bold">${soalan2}</td>
+                    <td class="px-6 py-4 text-sm text-gray-500" style="min-width: 250px; white-space: normal;">${cadangan}</td>
+                `;
+                
+                // Tambah baris pada badan jadual
+                tableBody.appendChild(tr);
+            });
+        }
+        
+        // --- Logik Eksport ---
+        
+        // 1. Eksport ke PDF
+        function exportToPDF() {
+            console.log("Mengeksport ke PDF...");
+            // Dapatkan rujukan 'global' jsPDF dari skrip CDN
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({
+                orientation: 'landscape' // Jadual ini lebar
+            });
+            
+            doc.setFont('Inter', 'normal'); // Cuba tetapkan fon (mungkin tidak disokong, tetapi selamat untuk dicuba)
+            doc.text("Laporan Maklum Balas Hab STEM PPD Miri", 14, 16);
+            doc.setFontSize(10);
+            doc.text(`Dijana pada: ${new Date().toLocaleString('ms-MY')}`, 14, 22);
+
+            // Guna autoTable untuk membaca jadual HTML
+            doc.autoTable({
+                html: '#data-table',
+                startY: 28, // Mula selepas tajuk
+                theme: 'grid', // 'striped', 'grid', atau 'plain'
+                styles: {
+                    font: 'Inter', // Cuba tetapkan fon
+                    fontSize: 8,
+                    cellPadding: 2,
+                },
+                headStyles: {
+                    fillColor: [22, 78, 99] // Warna biru-hitam
+                },
+                alternateRowStyles: {
+                    fillColor: [249, 250, 251] // Warna kelabu muda
+                }
+            });
+            
+            doc.save('laporan_maklumbalas_stem.pdf');
+        }
+
+        // 2. Eksport ke Excel
+        function exportToExcel() {
+            console.log("Mengeksport ke Excel...");
+            const table = document.getElementById('data-table');
+            
+            // Guna fungsi utiliti SheetJS untuk menukar jadual HTML ke 'workbook'
+            const wb = XLSX.utils.table_to_book(table, { sheet: "Maklum Balas" });
+            
+            // Hasilkan fail .xlsx
+            XLSX.writeFile(wb, 'laporan_maklumbalas_stem.xlsx');
+        }
+
+        // Pasang 'listeners' pada butang eksport
+        exportPdfBtn.addEventListener('click', exportToPDF);
+        exportExcelBtn.addEventListener('click', exportToExcel);
+
+    </script>
+</body>
+</html>
