@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maklum Balas Pelestarian STEM 2025 – Hab STEM PPD Miri</title>
+    <!-- Muat naik Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Muat naik Font Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -18,15 +20,47 @@
         .fade-in { animation: fadeIn 0.5s ease-out; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-gradient-to-br from-blue-50 via-purple-50 to-gray-50 min-h-screen">
 
-    <div class="container mx-auto max-w-3xl my-12 px-4">
+    <div class="container mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
             
             <div class="bg-gradient-to-r from-blue-600 to-purple-700 p-8 text-white relative">
-                <svg class="absolute top-4 right-4 h-16 w-16 text-white opacity-20" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m12 11 4 2"></path><path d="m12 11-4 2"></path><path d="m12 11-4-2"></path><path d="m12 11 4-2"></path><path d="m12 15 4 2"></path><path d="m12 15-4 2"></path><path d="m6 9 4 2"></path><path d="m14 9-4 2"></path></svg>
+                <!-- (Bahagian Header - ikon SVG lama telah dibuang) -->
+                
+                <!-- =============================================================================== -->
+                <!-- (BAHARU) Imej logo di penjuru kanan atas -->
+                <!-- =============================================================================== -->
+                <img src="https://i.imgur.com/z7qDhse.png" alt="Logo Hab STEM" class="absolute top-4 right-6 h-20 w-20 object-contain opacity-90" onerror="this.style.display='none'">
+                <!-- =============================================================================== -->
+                <!-- (TAMAT) Imej logo -->
+                <!-- =============================================================================== -->
+
                 <h1 class="text-3xl font-bold mb-3 relative z-10">Maklum Balas Pelestarian STEM 2025</h1>
                 <h2 class="text-xl font-semibold text-blue-100 relative z-10">Hab STEM PPD Miri</h2>
+
+                <!-- =============================================================================== -->
+                <!-- (BAHARU) Paparan Kaunter Maklum Balas -->
+                <!-- =============================================================================== -->
+                <div id="counter-display" class="mt-5 flex items-center space-x-3 text-blue-200 relative z-10 opacity-0 transition-opacity duration-500 ease-in-out">
+                    <!-- (DIKEMAS KINI) Ikon ditukar kepada 'clipboard-list' yang lebih sesuai -->
+                    <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <path d="M12 11h4"/>
+                        <path d="M12 16h4"/>
+                        <path d="M8 11h.01"/>
+                        <path d="M8 16h.01"/>
+                    </svg>
+                    <span class="font-medium text-lg">
+                        <span id="submission-count" class="font-bold text-white text-2xl">0</span>
+                        orang telah memberi maklum balas.
+                    </span>
+                </div>
+                <!-- =============================================================================== -->
+                <!-- (TAMAT) Paparan Kaunter -->
+                <!-- =============================================================================== -->
+
                 <div class="mt-6 border-t border-blue-500 pt-4 text-blue-100 text-sm space-y-2 relative z-10">
                     <p>Hab STEM PPD Miri berfungsi sebagai pusat rujukan dan pemangkin pelaksanaan inisiatif STEM di daerah Miri.</p>
                     <p>Borang ini bertujuan untuk mendapatkan maklum balas daripada guru-guru dan rakan strategik mengenai keberkesanan Hab STEM PPD Miri dalam menyokong pelestarian serta pengukuhan pendidikan STEM pada tahun 2025.</p>
@@ -34,8 +68,10 @@
                 </div>
             </div>
 
+            <!-- Badan Borang -->
             <form id="feedback-form" class="p-8 space-y-10">
                 
+                <!-- (SEKSYEN A: PROFIL RESPONDEN - tidak berubah) -->
                 <section>
                     <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-gray-200">
                         <svg class="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
@@ -70,7 +106,7 @@
                         </div>
                     </div>
                     <div class="mt-8">
-                        <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">3. Nama Penuh</label>
+                        <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">3. Nama Penuh <span class="text-gray-500 font-normal">(Untuk rujukan Penganjur sahaja)</span></label>
                         <input type="text" id="nama" name="nama" placeholder="Cth: Ali bin Abu" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
                     </div>
                     <div class="mt-8">
@@ -101,6 +137,7 @@
                     </div>
                 </section>
 
+                <!-- (SEKSYEN B: MAKLUM BALAS - tidak berubah) -->
                 <section>
                     <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-gray-200">
                         <svg class="w-8 h-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 12v5h4"></path><path d="M11 17V7h4"></path><path d="m15 17-4-4h8"></path></svg>
@@ -138,6 +175,7 @@
                     </div>
                 </section>
                 
+                <!-- (Butang Hantar - tidak berubah) -->
                 <div class="pt-6 border-t border-gray-200">
                     <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
@@ -149,6 +187,7 @@
         </div>
     </div>
 
+    <!-- (Modal Kongsi - DIKEMAS KINI) -->
     <div id="share-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 fade-in">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full text-center transform transition-all scale-100 opacity-100">
             <svg class="w-20 h-20 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
@@ -158,12 +197,20 @@
                 <p class="text-md font-medium text-gray-800 mb-4">Sudi tak kongsikan lawatan anda ke booth kami di Facebook?</p>
                 <textarea id="share-text-preview" class="w-full h-28 p-3 border border-gray-300 rounded-lg bg-gray-50 text-sm text-gray-700 mb-4 resize-none" readonly></textarea>
                 <a id="fb-share-btn" href="#" target="_blank" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0Z"/></svg>
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4-788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0Z"/></svg>
                     <span>Kongsi ke Facebook</span>
                 </a>
-                <a id="splg-btn" href="https://pahanmy.github.io/spark/semak.html" target="_blank" class="w-full mt-4 bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
+                
+                <!-- =============================================================================== -->
+                <!-- (DIKEMAS KINI) Pautan href ditukar -->
+                <!-- =============================================================================== -->
+                <a id="splg-btn" href="https://pahanmy.github.io/spark/participant.html?kod=885-42486" target="_blank" class="w-full mt-4 bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                     <span>✅ Daftar Kehadiran (SPARK)</span>
                 </a>
+                <!-- =============================================================================== -->
+                <!-- (TAMAT) Kemas kini -->
+                <!-- =============================================================================== -->
+
             </div>
             <button id="close-modal-btn" class="mt-6 text-sm text-gray-500 hover:text-gray-700 font-medium transition-all">
                 Mungkin lain kali
@@ -171,131 +218,244 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.getElementById('feedback-form');
-            const shareModal = document.getElementById('share-modal');
-            const closeModalButton = document.getElementById('close-modal-btn');
-            const fbShareBtn = document.getElementById('fb-share-btn');
-            const shareTextPreview = document.getElementById('share-text-preview');
+    <!-- =============================================================================== -->
+    <!-- SCRIPT DIKEMAS KINI UNTUK FIREBASE & KAUNTER -->
+    <!-- =============================================================================== -->
+    <script type="module">
+        // --- Import Firebase (DIKEMAS KINI untuk onSnapshot) ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, addDoc, collection, serverTimestamp, setLogLevel, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-            // --- Logik 'Lain-lain' ---
-            const radioButtonsJawatan = document.querySelectorAll('input[name="jawatan"]');
-            const lainInput = document.getElementById('jawatan-lain-input');
-            const lainRadio = document.getElementById('jawatan-lain');
-            radioButtonsJawatan.forEach(radio => {
-                radio.addEventListener('change', () => {
-                    if (lainRadio.checked) {
-                        lainInput.disabled = false;
-                        lainInput.classList.add('bg-white');
-                        lainInput.focus();
-                    } else {
+        // --- Mulakan Firebase (SEDIA ADA) ---
+        const firebaseConfig = JSON.parse(typeof __firebase_config !== 'undefined' ? __firebase_config : '{}');
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        
+        // Aktifkan log debug
+        setLogLevel('Debug');
+        
+        let userId = null; 
+
+        // --- Logik Pengesahan (Auth) (SEDIA ADA) ---
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log("Firebase user is signed in:", user.uid);
+                userId = user.uid;
+            } else {
+                console.log("Firebase user is signed out.");
+                userId = null;
+            }
+        });
+
+        // --- (DIPINDAHKAN) Ambil Elemen Kaunter ---
+        const counterDisplay = document.getElementById('counter-display');
+        const submissionCountElement = document.getElementById('submission-count');
+        
+        // --- (DIPINDAHKAN) Tentukan Laluan Koleksi Awam ---
+        const publicCollectionPath = `/artifacts/${appId}/public/data/maklumbalas_stem_awam`;
+        const q = collection(db, publicCollectionPath); // Sediakan query
+
+        // --- (DIKEMAS KINI) Logik Log Masuk & Pasang Listener ---
+        // Lakukan log masuk sekali DAN PASANG LISTENER SELEPAS LOG MASUK
+        (async () => {
+            try {
+                // 1. Lakukan Log Masuk
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                    console.log("Signed in with custom token.");
+                } else {
+                    await signInAnonymously(auth);
+                    console.log("Signed in anonymously.");
+                }
+
+                // 2. (BAHARU) Pasang Listener Kaunter SELEPAS log masuk berjaya
+                // Ini memastikan kita ada kebenaran (auth != null) sebelum cuba membaca
+                console.log("Authentication successful. Attaching snapshot listener...");
+                onSnapshot(q, (snapshot) => {
+                    const count = snapshot.size; // Dapatkan jumlah dokumen dalam koleksi
+                    console.log("Current submission count:", count);
+                    if (submissionCountElement) {
+                        submissionCountElement.textContent = count; // Kemas kini nombor
+                    }
+                    if (counterDisplay) {
+                        counterDisplay.classList.remove('opacity-0'); // Paparkan kaunter (fade in)
+                    }
+                }, (error) => {
+                    // Jika ralat masih berlaku, ia mungkin isu rules di server
+                    console.error("Error listening to submission count (after auth):", error);
+                    if (counterDisplay) {
+                        // Tunjuk ralat kecil jika gagal
+                        counterDisplay.innerHTML = `<svg class="h-5 w-5 text-red-300" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg> <span class="text-sm text-red-100">Gagal memuatkan kaunter</span>`;
+                        counterDisplay.classList.remove('opacity-0');
+                    }
+                });
+
+            } catch (error) {
+                // Ini untuk ralat log masuk (Auth)
+                console.error("Firebase Auth Error:", error);
+                const errorDiv = document.createElement('div');
+                errorDiv.className = "bg-red-600 text-white p-3 text-center fixed top-0 left-0 right-0 z-50";
+                errorDiv.textContent = "Amaran: Tidak dapat menyambung ke pangkalan data. Sila muat semula.";
+                document.body.prepend(errorDiv);
+            }
+        })();
+        
+        
+        // --- Ambil Elemen Borang (SEDIA ADA) ---
+        const form = document.getElementById('feedback-form');
+        const shareModal = document.getElementById('share-modal');
+        const closeModalButton = document.getElementById('close-modal-btn');
+        const fbShareBtn = document.getElementById('fb-share-btn');
+        const shareTextPreview = document.getElementById('share-text-preview');
+
+        // --- (DIPINDAHKAN) Logik Kaunter Realtime ---
+        // Kod onSnapshot() telah dipindahkan ke dalam blok async di atas
+        // untuk memastikan ia berjalan selepas pengesahan.
+
+
+        // --- Logik 'Lain-lain' (SEDIA ADA) ---
+        const radioButtonsJawatan = document.querySelectorAll('input[name="jawatan"]');
+        const lainInput = document.getElementById('jawatan-lain-input');
+        const lainRadio = document.getElementById('jawatan-lain');
+        radioButtonsJawatan.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (lainRadio.checked) {
+                    lainInput.disabled = false;
+                    lainInput.classList.add('bg-white');
+                    lainInput.focus();
+                } else {
+                    lainInput.disabled = true;
+                    lainInput.value = '';
+                    lainInput.classList.remove('bg-white');
+                }
+            });
+        });
+
+        // --- Logik UPPERCASE (SEDIA ADA) ---
+        const fieldsToUppercase = ['stesen', 'nama', 'jawatan-lain-input', 'cadangan'];
+        const forceUppercase = (event) => {
+            const target = event.target;
+            const start = target.selectionStart;
+            const end = target.selectionEnd;
+            target.value = target.value.toUpperCase();
+            target.setSelectionRange(start, end);
+        };
+        fieldsToUppercase.forEach(id => {
+            const element = document.getElementById(id);
+            if (element) {
+                element.addEventListener('input', forceUppercase);
+            }
+        });
+
+        // --- Logik Kongsi Facebook (SEDIA ADA) ---
+        const fbQuote = "Saya dah melawat booth Hab STEM PPD Miri di Pameran STEM 2025 (23 Oktober 2025)! Sangat menarik! 🚀 #STEMMiri2025 #PameranSTEM #PPDMiri";
+        const fbUrl = "https://www.facebook.com/ppdmiri/";
+        const fbHashtag = "HabSTEMPPDMiri";
+        const shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fbUrl)}&quote=${encodeURIComponent(fbQuote)}&hashtag=${encodeURIComponent(fbHashtag)}`;
+        fbShareBtn.setAttribute('href', shareLink);
+        shareTextPreview.value = fbQuote;
+
+        
+        // --- Logik PENGHANTARAN BORANG (DIKEMAS KINI UNTUK FIREBASE) ---
+        
+        form.addEventListener('submit', async function(event) { // Tambah 'async'
+            event.preventDefault(); 
+
+            // 1. Semak jika pengesahan Firebase sudah sedia (SEDIA ADA)
+            if (!userId) {
+                console.error("User is not authenticated. Cannot submit.");
+                const submitButton = form.querySelector('button[type="submit"]');
+                submitButton.innerHTML = "<span>Ralat: Sambungan Gagal. Sila Muat Semula.</span>";
+                submitButton.classList.add('bg-red-600', 'hover:bg-red-700'); 
+                return; 
+            }
+
+            // 2. Kumpul Data (SEDIA ADA)
+            let jawatanValue = document.querySelector('input[name="jawatan"]:checked').value;
+            if (jawatanValue === 'Lain-lain') {
+                jawatanValue = document.getElementById('jawatan-lain-input').value;
+            }
+            const soalan_1_checked = document.querySelector('input[name="soalan_1"]:checked');
+            const soalan_2_checked = document.querySelector('input[name="soalan_2"]:checked');
+
+            if (!soalan_1_checked || !soalan_2_checked) {
+                 const submitButton = form.querySelector('button[type="submit"]');
+                 submitButton.innerHTML = "<span>Sila lengkapkan Seksyen B</span>";
+                 submitButton.classList.add('bg-yellow-500', 'hover:bg-yellow-600');
+                 setTimeout(() => {
+                    submitButton.innerHTML = "<span>Hantar Maklum Balas</span>";
+                    submitButton.classList.remove('bg-yellow-500', 'hover:bg-yellow-600');
+                 }, 2000);
+                 return; 
+            }
+            
+            // (DIKEMAS KINI) - Medan 'nama' dibuang untuk privasi koleksi awam
+            const dataToSend = {
+                stesen: document.getElementById('stesen').value,
+                negeri: document.getElementById('negeri').value,
+                // nama: document.getElementById('nama').value, // DIBUANG ATAS SEBAB PRIVASI
+                jawatan: jawatanValue,
+                soalan_1: soalan_1_checked.value,
+                soalan_2: soalan_2_checked.value,
+                cadangan: document.getElementById('cadangan').value,
+                dihantarOleh: userId, // Simpan ID pengguna (tanpa nama)
+                dihantarPada: serverTimestamp() 
+            };
+
+            // 3. Tunjukkan 'Loading' (SEDIA ADA)
+            const submitButton = form.querySelector('button[type="submit"]');
+            const originalButtonHTML = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Menghantar...`;
+            submitButton.classList.remove('bg-red-600', 'hover:bg-red-700', 'bg-yellow-500', 'hover:bg-yellow-600');
+
+
+            // 4. Hantar Data ke FIREBASE (DIKEMAS KINI ke laluan awam)
+            try {
+                // (DIKEMAS KINI) Guna laluan koleksi awam
+                const docRef = await addDoc(collection(db, publicCollectionPath), dataToSend);
+                
+                console.log('Success! Document written with ID:', docRef.id);
+
+                // 5. Tunjukkan Modal Kejayaan (SEDIA ADA)
+                // Kita tidak sembunyikan borang, cuma reset
+                // form.classList.add('hidden'); // DIBUANG
+                shareModal.classList.remove('hidden'); 
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                
+                form.reset(); 
+                // Dayakan semula input 'lain-lain' jika ia dilumpuhkan oleh reset
+                radioButtonsJawatan.forEach(radio => {
+                    if (radio.value === 'Lain-lain' && !radio.chGcked) {
                         lainInput.disabled = true;
                         lainInput.value = '';
                         lainInput.classList.remove('bg-white');
                     }
                 });
-            });
 
-            // --- Logik UPPERCASE ---
-            const fieldsToUppercase = ['stesen', 'nama', 'jawatan-lain-input', 'cadangan'];
-            const forceUppercase = (event) => {
-                const target = event.target;
-                const start = target.selectionStart;
-                const end = target.selectionEnd;
-                target.value = target.value.toUpperCase();
-                target.setSelectionRange(start, end);
-            };
-            fieldsToUppercase.forEach(id => {
-                const element = document.getElementById(id);
-                if (element) {
-                    element.addEventListener('input', forceUppercase);
-                }
-            });
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonHTML;
 
-            // --- Logik Kongsi Facebook ---
-            const fbQuote = "Saya dah melawat booth Hab STEM PPD Miri di Pameran STEM 2025 (23 Oktober 2025)! Sangat menarik! 🚀 #STEMMiri2025 #PameranSTEM #PPDMiri";
-            const fbUrl = "https://www.facebook.com/ppdmiri/";
-            const fbHashtag = "HabSTEMPPDMiri";
-            const shareLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(fbUrl)}&quote=${encodeURIComponent(fbQuote)}&hashtag=${encodeURIComponent(fbHashtag)}`;
-            fbShareBtn.setAttribute('href', shareLink);
-            shareTextPreview.value = fbQuote;
+            } catch (error) {
+                console.error('Error adding document:', error);
+                submitButton.disabled = false;
+                submitButton.innerHTML = "<span>Ralat: Gagal Hantar. Cuba Lagi.</span>";
+                submitButton.classList.add('bg-red-600', 'hover:bg-red-700');
+            }
+        });
 
-            
-            // --- Logik PENGHANTARAN BORANG (URLSearchParams) ---
-            
-            // ▼▼▼ URL "NEW DEPLOYMENT" BAHARU ANDA TELAH DIMASUKKAN DI SINI ▼▼▼
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbzbmTYSY28mQ6raCG3KSpZGXk9L4LwCBYDkdyxRaL8PsAJDd6j8yUJHVBTMd8ezPf_5sA/exec'; 
-            
-            form.addEventListener('submit', function(event) {
-                event.preventDefault(); 
-
-                // 1. Kumpul Data
-                let jawatanValue = document.querySelector('input[name="jawatan"]:checked').value;
-                if (jawatanValue === 'Lain-lain') {
-                    jawatanValue = document.getElementById('jawatan-lain-input').value;
-                }
-                const soalan_1_checked = document.querySelector('input[name="soalan_1"]:checked');
-                const soalan_2_checked = document.querySelector('input[name="soalan_2"]:checked');
-                if (!soalan_1_checked || !soalan_2_checked) {
-                     alert("Sila lengkapkan semua soalan di Seksyen B.");
-                     return; 
-                }
-                const dataToSend = {
-                    stesen: document.getElementById('stesen').value,
-                    negeri: document.getElementById('negeri').value,
-                    nama: document.getElementById('nama').value,
-                    jawatan: jawatanValue,
-                    soalan_1: soalan_1_checked.value,
-                    soalan_2: soalan_2_checked.value,
-                    cadangan: document.getElementById('cadangan').value
-                };
-
-                // 2. Tunjukkan 'Loading'
-                const submitButton = form.querySelector('button[type="submit"]');
-                const originalButtonHTML = submitButton.innerHTML;
-                submitButton.disabled = true;
-                submitButton.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Menghantar...`;
-
-                // 3. Hantar Data (Kaedah URLSearchParams - Tiada CORS Preflight)
-                fetch(scriptURL, {
-                    method: 'POST',
-                    mode: 'cors',
-                    cache: 'no-cache',
-                    body: new URLSearchParams(dataToSend), 
-                    redirect: 'follow'
-                })
-                .then(response => response.json()) // Baca respons sebagai JSON
-                .then(data => {
-                    // Semak jika Apps Script hantar balik ralat
-                    if (data.result === 'error') {
-                        throw new Error(data.message); // Hantar ke blok .catch
-                    }
-
-                    console.log('Success:', data);
-                    // 4. Tunjukkan Modal Kejayaan
-                    form.classList.add('hidden');
-                    shareModal.classList.remove('hidden'); 
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    
-                    form.reset(); 
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = originalButtonHTML;
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                    // Papar ralat yang lebih spesifik jika ada (cth: "Tab 'RESPONS' tidak ditemui")
-                    alert('Maaf, berlaku ralat: ' + error.message);
-                    submitButton.disabled = false;
-                    submitButton.innerHTML = originalButtonHTML;
-                });
-            });
-
-            // --- Logik tutup modal ---
-            closeModalButton.addEventListener('click', function() {
-                shareModal.classList.add('hidden');
-            });
+        // --- Logik tutup modal (SEDIA ADA) ---
+        closeModalButton.addEventListener('click', function() {
+            shareModal.classList.add('hidden');
+            // Borang tidak lagi disembunyikan, jadi tak perlu papar semula
+            // form.classList.remove('hidden'); // DIBUANG
         });
     </script>
 </body>
 </html>
+
+
+
