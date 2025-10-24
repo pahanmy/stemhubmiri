@@ -27,7 +27,7 @@
             
             <div class="bg-gradient-to-r from-blue-600 to-purple-700 p-8 text-white relative">
                 
-                <img src="https://i.imgur.com/z7qDhse.png" alt="Logo Hab STEM" class="absolute top-4 right-6 h-36 w-36 object-contain opacity-90" onerror="this.style.display='none'">
+                <img src="https://i.imgur.com/z7qDhse.png" alt="Logo Hab STEM" class="absolute top-4 right-6 h-36 w-36 object-contain opacity-90 z-20" onerror="this.style.display='none'">
                 <h1 class="text-3xl font-bold mb-3 relative z-10">Maklum Balas Pelestarian STEM 2025</h1>
                 <h2 class="text-xl font-semibold text-blue-100 relative z-10">Hab STEM PPD Miri</h2>
 
@@ -193,6 +193,8 @@
             
             <div class="bg-gray-100 p-6 rounded-lg border border-gray-200">
                 <p class="text-md font-medium text-gray-800 mb-4">Sudi tak kongsikan lawatan anda ke booth kami di Facebook?</p>
+                
+                <p class="text-sm text-gray-600 mb-3 -mt-2"><b>Penting:</b> Sila <b>Salin (Copy)</b> teks di bawah dan <b>Tampal (Paste)</b> di tetingkap Facebook yang akan dibuka.</p>
                 <textarea id="share-text-preview" class="w-full h-28 p-3 border border-gray-300 rounded-lg bg-gray-50 text-sm text-gray-700 mb-4 resize-none" readonly></textarea>
                 <a id="fb-share-btn" href="#" target="_blank" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4-788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0Z"/></svg>
@@ -380,7 +382,10 @@
         });
 
         // --- Logik Kongsi Facebook ---
-        const fbQuote = "Saya dah melawat booth Hab STEM PPD Miri di Pameran STEM 2025 (23 Oktober 2025)! Sangat menarik! 🚀 #STEMMiri2025 #PameranSTEM #PPDMiri";
+        // ===============================================================================
+        // (DIKEMAS KINI) Tarikh ditukar kepada 28-29 Oktober 2025
+        // ===============================================================================
+        const fbQuote = "Saya dah melawat booth Hab STEM PPD Miri di Pameran STEM 2025 (28-29 Oktober 2025)! Sangat menarik! 🚀 #STEMMiri2025 #PameranSTEM #PPDMiri";
         const fbUrl = "https://www.facebook.com/ppdmiri/"; // URL sasaran
         const fbHashtag = "HabSTEMPPDMiri";
         // Bina pautan kongsi
