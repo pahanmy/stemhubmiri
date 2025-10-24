@@ -60,8 +60,37 @@
                         <h2 class="text-2xl font-semibold text-gray-900">SEKSYEN A: PROFIL RESPONDEN</h2>
                     </div>
 
+                    <div id="school-info-block" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="stesen" class="block text-sm font-medium text-gray-700 mb-2">1. Stesen Bertugas/Sekolah</label>
+                            <input type="text" id="stesen" name="stesen" placeholder="Cth: PPD Miri / SMK ABC" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
+                        </div>
+                        <div>
+                            <label for="negeri" class="block text-sm font-medium text-gray-700 mb-2">2. Negeri Bertugas</label>
+                            <select id="negeri" name="negeri" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white">
+                                <option value="" disabled selected>Sila pilih negeri anda</option>
+                                <option value="Johor">Johor</option>
+                                <option value="Kedah">Kedah</option>
+                                <option value="Kelantan">Kelantan</option>
+                                <option value="Melaka">Melaka</option>
+                                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                <option value="Pahang">Pahang</option>
+                                <option value="Perak">Perak</option>
+                                <option value="Perlis">Perlis</option>
+                                <option value="Pulau Pinang">Pulau Pinang</option>
+                                <option value="Sabah">Sabah</option>
+                                <option value="Sarawak">Sarawak</option>
+                                <option value="Selangor">Selangor</option>
+                                <option value="Terengganu">Terengganu</option>
+                                <option value="WP Kuala Lumpur">WP Kuala Lumpur</option>
+                                <option value="WP Labuan">WP Labuan</option>
+                                <option value="WP Putrajaya">WP Putrajaya</option>
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="mt-8">
-                        <label class="block text-sm font-medium text-gray-700 mb-3">2. Jawatan / Peranan</label>
+                        <label class="block text-sm font-medium text-gray-700 mb-3">3. Jawatan / Peranan</label>
                         <div class="space-y-3">
                             <div class="flex items-center p-3 border border-gray-200 rounded-lg hover:bg-gray-50 transition-all">
                                 <input id="jawatan-guru-stem" name="jawatan" type="radio" value="Guru STEM" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500" required>
@@ -92,35 +121,6 @@
                                 <label for="jawatan-lain" class="ml-3 block text-sm text-gray-800">Lain-lain:</label>
                                 <input type="text" id="jawatan-lain-input" name="jawatan_lain" class="ml-2 flex-grow px-3 py-1 border-b border-gray-300 focus:outline-none focus:border-blue-500 transition-all bg-transparent" placeholder="Sila nyatakan" disabled>
                             </div>
-                        </div>
-                    </div>
-
-                    <div id="school-info-block" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden mt-8">
-                        <div>
-                            <label for="stesen" class="block text-sm font-medium text-gray-700 mb-2">3. Stesen Bertugas/Sekolah</label>
-                            <input type="text" id="stesen" name="stesen" placeholder="Cth: PPD Miri / SMK ABC" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
-                        </div>
-                        <div>
-                            <label for="negeri" class="block text-sm font-medium text-gray-700 mb-2">4. Negeri Bertugas</label>
-                            <select id="negeri" name="negeri" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white">
-                                <option value="" disabled selected>Sila pilih negeri anda</option>
-                                <option value="Johor">Johor</option>
-                                <option value="Kedah">Kedah</option>
-                                <option value="Kelantan">Kelantan</option>
-                                <option value="Melaka">Melaka</option>
-                                <option value="Negeri Sembilan">Negeri Sembilan</option>
-                                <option value="Pahang">Pahang</option>
-                                <option value="Perak">Perak</option>
-                                <option value="Perlis">Perlis</option>
-                                <option value="Pulau Pinang">Pulau Pinang</option>
-                                <option value="Sabah">Sabah</option>
-                                <option value="Sarawak">Sarawak</option>
-                                <option value="Selangor">Selangor</option>
-                                <option value="Terengganu">Terengganu</option>
-                                <option value="WP Kuala Lumpur">WP Kuala Lumpur</option>
-                                <option value="WP Labuan">WP Labuan</option>
-                                <option value="WP Putrajaya">WP Putrajaya</option>
-                            </select>
                         </div>
                     </div>
                     
@@ -344,13 +344,15 @@
 
                 if (educationRoles.includes(selectedValue)) {
                     // Jika peranan berkaitan pendidikan, TUNJUKKAN blok
-                    schoolInfoBlock.classList.remove('hidden');
+                    // (DIKEMAS KINI) Baris di bawah dibuang kerana blok sentiasa nampak
+                    // schoolInfoBlock.classList.remove('hidden');
                     // Dan jadikan ia DIWAJIBKAN
                     stesenInput.required = true;
                     negeriInput.required = true;
                 } else {
                     // Jika tidak (cth: Orang Awam, Rakan Strategik), SEMBUNYIKAN blok
-                    schoolInfoBlock.classList.add('hidden');
+                    // (DIKEMAS KINI) Baris di bawah dibuang kerana blok sentiasa nampak
+                    // schoolInfoBlock.classList.add('hidden');
                     // Dan pastikan ia TIDAK DIWAJIBKAN
                     stesenInput.required = false;
                     negeriInput.required = false;
@@ -465,9 +467,9 @@
                     }
                 });
                 
-                // Sembunyikan semula blok sekolah selepas reset
-                const schoolInfoBlock = document.getElementById('school-info-block');
-                schoolInfoBlock.classList.add('hidden');
+                // (DIKEMAS KINI) Baris di bawah dibuang untuk pastikan blok tidak tersembunyi
+                // const schoolInfoBlock = document.getElementById('school-info-block');
+                // schoolInfoBlock.classList.add('hidden');
                 document.getElementById('stesen').required = false;
                 document.getElementById('negeri').required = false;
 
