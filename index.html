@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maklum Balas Pelestarian STEM 2025 – Hab STEM PPD Miri</title>
-    <!-- Muat naik Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Muat naik Font Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
@@ -24,30 +22,16 @@
 </head>
 <body class="bg-gradient-to-br from-blue-50 via-purple-50 to-gray-50 min-h-screen">
 
-    <!-- Kontena Utama -->
     <div class="container mx-auto max-w-5xl py-12 px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-2xl shadow-2xl overflow-hidden">
             
-            <!-- Bahagian Header -->
             <div class="bg-gradient-to-r from-blue-600 to-purple-700 p-8 text-white relative">
                 
-                <!-- =============================================================================== -->
-                <!-- Imej logo di penjuru kanan atas -->
-                <!-- (DIUBAH) Saiz ditukar daripada h-28 w-28 kepada h-36 w-36 -->
-                <!-- =============================================================================== -->
                 <img src="https://i.imgur.com/z7qDhse.png" alt="Logo Hab STEM" class="absolute top-4 right-6 h-36 w-36 object-contain opacity-90" onerror="this.style.display='none'">
-                <!-- =============================================================================== -->
-                <!-- (TAMAT) Imej logo -->
-                <!-- =============================================================================== -->
-
                 <h1 class="text-3xl font-bold mb-3 relative z-10">Maklum Balas Pelestarian STEM 2025</h1>
                 <h2 class="text-xl font-semibold text-blue-100 relative z-10">Hab STEM PPD Miri</h2>
 
-                <!-- =============================================================================== -->
-                <!-- Paparan Kaunter Maklum Balas -->
-                <!-- =============================================================================== -->
                 <div id="counter-display" class="mt-5 flex items-center space-x-3 text-blue-200 relative z-10 opacity-0 transition-opacity duration-500 ease-in-out">
-                    <!-- Ikon 'clipboard-list' -->
                     <svg class="h-7 w-7" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
                         <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
@@ -61,11 +45,6 @@
                         orang telah memberi maklum balas.
                     </span>
                 </div>
-                <!-- =============================================================================== -->
-                <!-- (TAMAT) Paparan Kaunter -->
-                <!-- =============================================================================== -->
-
-                <!-- (DIKEMAS KINI) Ayat penerangan dibuat lebih menarik dan meyakinkan -->
                 <div class="mt-6 border-t border-blue-500 pt-4 text-blue-100 text-sm space-y-3 relative z-10">
                     <p class="text-base font-medium">Hab STEM PPD Miri komited menjadi <strong class="text-white">peneraju dan pemangkin utama</strong>, mencetuskan inovasi dan menyokong penuh pelaksanaan inisiatif STEM di seluruh daerah Miri.</p>
                     <p>Suara anda penting! Borang ini adalah saluran khas untuk anda, para guru dan rakan strategik kami, berkongsi pandangan jujur mengenai keberkesanan program kami dalam melestarikan pendidikan STEM sepanjang 2025.</p>
@@ -73,28 +52,14 @@
                 </div>
             </div>
 
-            <!-- Badan Borang -->
             <form id="feedback-form" class="p-8 space-y-10">
                 
-                <!-- SEKSYEN A: PROFIL RESPONDEN -->
                 <section>
                     <div class="flex items-center space-x-3 mb-6 pb-3 border-b border-gray-200">
                         <svg class="w-8 h-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
                         <h2 class="text-2xl font-semibold text-gray-900">SEKSYEN A: PROFIL RESPONDEN</h2>
                     </div>
 
-                    <!-- =============================================================================== -->
-                    <!-- (SUSUNAN DIUBAH) 1. NAMA PENUH (Dahulu Soalan 3) -->
-                    <!-- =============================================================================== -->
-                    <!-- 'mt-8' dibuang kerana ia soalan pertama -->
-                    <div>
-                        <label for="nama" class="block text-sm font-medium text-gray-700 mb-2">1. Nama Penuh <span class="text-gray-500 font-normal">(Untuk rujukan Penganjur sahaja)</span></label>
-                        <input type="text" id="nama" name="nama" placeholder="Cth: Ali bin Abu" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all" required>
-                    </div>
-
-                    <!-- =============================================================================== -->
-                    <!-- (SUSUNAN DIUBAH) 2. JAWATAN / PERANAN (Dahulu Soalan 4) -->
-                    <!-- =============================================================================== -->
                     <div class="mt-8">
                         <label class="block text-sm font-medium text-gray-700 mb-3">2. Jawatan / Peranan</label>
                         <div class="space-y-3">
@@ -130,17 +95,11 @@
                         </div>
                     </div>
 
-                    <!-- =============================================================================== -->
-                    <!-- (SUSUNAN DIUBAH) 3. & 4. STESEN / NEGERI (Dahulu Soalan 1 & 2) -->
-                    <!-- =============================================================================== -->
-                    <!-- (DIKEMAS KINI) 'mt-8' ditambah di sini untuk jarak dari soalan Jawatan -->
                     <div id="school-info-block" class="grid grid-cols-1 md:grid-cols-2 gap-6 hidden mt-8">
-                        <!-- Soalan 3: Stesen -->
                         <div>
                             <label for="stesen" class="block text-sm font-medium text-gray-700 mb-2">3. Stesen Bertugas/Sekolah</label>
                             <input type="text" id="stesen" name="stesen" placeholder="Cth: PPD Miri / SMK ABC" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all">
                         </div>
-                        <!-- Soalan 4: Negeri -->
                         <div>
                             <label for="negeri" class="block text-sm font-medium text-gray-700 mb-2">4. Negeri Bertugas</label>
                             <select id="negeri" name="negeri" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all bg-white">
@@ -167,7 +126,6 @@
                     
                 </section>
 
-                <!-- SEKSYEN B: MAKLUM BALAS -->
                 <section>
                     <div class="flex items-center space-x-3 mb-4 pb-3 border-b border-gray-200">
                         <svg class="w-8 h-8 text-purple-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M7 12v5h4"></path><path d="M11 17V7h4"></path><path d="m15 17-4-4h8"></path></svg>
@@ -175,7 +133,6 @@
                     </div>
                     <p class="text-sm text-gray-600 mb-8">Arahan: Sila nyatakan tahap persetujuan anda bagi setiap pernyataan di bawah.<br>(1 = Sangat Tidak Setuju, 5 = Sangat Setuju)</p>
                     
-                    <!-- Soalan B1 -->
                     <div class="mb-10 p-4 border border-gray-100 rounded-lg shadow-sm bg-white">
                         <label class="block text-md font-medium text-gray-900">1. Hab STEM PPD Miri berperanan penting dalam menyokong pelestarian pendidikan STEM di daerah Miri.</label>
                         <p class="block text-sm text-gray-500 mt-1 italic">/ STEM Hub PPD Miri plays an important role in supporting the sustainability of STEM education in Miri district.</p>
@@ -189,7 +146,6 @@
                         <div class="flex justify-between text-xs text-gray-500 mt-2 px-1"><span>Sangat Tidak Setuju</span><span>Sangat Setuju</span></div>
                     </div>
                     
-                    <!-- Soalan B2 -->
                     <div class="mb-10 p-4 border border-gray-100 rounded-lg shadow-sm bg-white">
                         <label class="block text-md font-medium text-gray-900">2. Bengkel dan program yang dijalankan oleh Hab STEM PPD Miri sepanjang tahun 2025 telah membantu meningkatkan kompetensi guru dalam pengukuhan pelaksanaan STEM di sekolah.</label>
                         <p class="block text-sm text-gray-500 mt-1 italic">/ The workshops and programs organized by STEM Hub PPD Miri in 2025 have helped enhance teachers’ competencies in strengthening STEM implementation in schools.</p>
@@ -203,7 +159,6 @@
                         <div class="flex justify-between text-xs text-gray-500 mt-2 px-1"><span>Sangat Tidak Setuju</span><span>Sangat Setuju</span></div>
                     </div>
 
-                    <!-- Soalan B3: Cadangan -->
                     <div class="mb-6">
                         <label for="cadangan" class="block text-md font-medium text-gray-900">3. Apakah cadangan anda bagi memperkukuh dan melestarikan lagi pelaksanaan inisiatif STEM melalui Hab STEM PPD Miri pada masa akan datang?</label>
                         <p class="block text-sm text-gray-500 mt-1 mb-4 italic">/ What are your suggestions to further strengthen and sustain STEM initiatives through STEM Hub PPD Miri in the future?</p>
@@ -211,7 +166,6 @@
                     </div>
                 </section>
                 
-                <!-- Butang Hantar -->
                 <div class="pt-6 border-t border-gray-200">
                     <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-purple-700 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                         <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
@@ -223,9 +177,6 @@
         </div>
     </div>
 
-    <!-- =============================================================================== -->
-    <!-- (BAHARU) Footer -->
-    <!-- =============================================================================== -->
     <footer class="text-center py-6 px-4">
         <p class="text-sm text-gray-500">
             Projek Inovasi oleh 
@@ -234,45 +185,31 @@
             </a>
         </p>
     </footer>
-    <!-- =============================================================================== -->
-    <!-- (TAMAT) Footer -->
-    <!-- =============================================================================== -->
-
-
-    <!-- Modal Kongsi (Selepas Hantar) -->
     <div id="share-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center p-4 z-50 fade-in">
         <div class="bg-white rounded-2xl shadow-2xl p-8 max-w-lg w-full text-center transform transition-all scale-100 opacity-100">
-            <!-- Ikon 'Checkmark' -->
             <svg class="w-20 h-20 text-green-500 mx-auto mb-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             <h2 class="text-3xl font-bold text-gray-800 mb-2">Terima Kasih!</h2>
             <p class="text-lg text-gray-600 mb-6">Maklum balas anda telah berjaya dihantar.</p>
             
-            <!-- Bahagian Kongsi -->
             <div class="bg-gray-100 p-6 rounded-lg border border-gray-200">
                 <p class="text-md font-medium text-gray-800 mb-4">Sudi tak kongsikan lawatan anda ke booth kami di Facebook?</p>
                 <textarea id="share-text-preview" class="w-full h-28 p-3 border border-gray-300 rounded-lg bg-gray-50 text-sm text-gray-700 mb-4 resize-none" readonly></textarea>
-                <!-- Butang Kongsi FB -->
                 <a id="fb-share-btn" href="#" target="_blank" class="w-full bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                     <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.35C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4-788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.325-.593 1.325-1.325V1.325C24 .593 23.407 0 22.675 0Z"/></svg>
                     <span>Kongsi ke Facebook</span>
                 </a>
                 
-                <!-- Butang Daftar SPARK -->
                 <a id="splg-btn" href="https://pahanmy.github.io/spark/participant.html?kod=885-42486" target="_blank" class="w-full mt-4 bg-green-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-green-700 transform hover:-translate-y-0.5 transition-all duration-300 ease-in-out text-lg flex items-center justify-center space-x-2">
                     <span>✅ Daftar Kehadiran (SPARK)</span>
                 </a>
 
             </div>
-            <!-- Butang Tutup Modal -->
             <button id="close-modal-btn" class="mt-6 text-sm text-gray-500 hover:text-gray-700 font-medium transition-all">
                 Mungkin lain kali
             </button>
         </div>
     </div>
 
-    <!-- =============================================================================== -->
-    <!-- SCRIPT UTAMA (TERMASUK FIREBASE & LOGIK BORANG) -->
-    <!-- =============================================================================== -->
     <script type="module">
         // --- Import Modul Firebase ---
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -425,7 +362,7 @@
         });
 
         // --- Logik Tukar Teks ke HURUF BESAR (UPPERCASE) ---
-        const fieldsToUppercase = ['stesen', 'nama', 'jawatan-lain-input', 'cadangan'];
+        const fieldsToUppercase = ['stesen', 'jawatan-lain-input', 'cadangan'];
         const forceUppercase = (event) => {
             const target = event.target;
             const start = target.selectionStart; // Simpan kedudukan kursor
@@ -486,9 +423,7 @@
             }
             
             // Sediakan objek data untuk dihantar ke Firestore
-            // (DIKEMAS KINI) Medan 'nama' ditambah semula. 
             const dataToSend = {
-                nama: document.getElementById('nama').value, // DITAMBAH SEMULA
                 jawatan: jawatanValue,
                 stesen: document.getElementById('stesen').value,
                 negeri: document.getElementById('negeri').value,
@@ -557,4 +492,3 @@
     </script>
 </body>
 </html>
-
